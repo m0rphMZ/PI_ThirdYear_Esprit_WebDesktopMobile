@@ -20,18 +20,19 @@ Reclamation System:
 Users can submit reclamation requests to report issues or seek assistance.
 
 
-# Installation
+## Installation
+
 To run the Touskieart platform, follow these steps:
 
-Install Java and Symfony on your machine.
-Install Composer (Dependency Manager for PHP) if not already installed.
-Clone the repository: git clone https://github.com/your-username/Touskieart.git.
-Navigate to the project directory: cd Touskieart.
-Install dependencies: Run composer install to update the PHP dependencies.
-Install an IDE for Java development.
-Install the CodenameOne plugin in your IDE.
-Open the Java project in your IDE and configure the CodenameOne plugin.
-Build and run the Java project to start the mobile application.
+- Install Java and Symfony on your machine.
+- Install Composer (Dependency Manager for PHP) if not already installed.
+- Clone the repository: `git clone https://github.com/m0rphMZ/PI_ThirdYear_Esprit_WebDesktopMobile.git`.
+- Navigate to the project directory: `cd PI_ThirdYear_Esprit_WebDesktopMobile`.
+- Install dependencies: Run `composer install` to update the PHP dependencies.
+- Install an IDE for Java development.
+- Install the CodenameOne plugin in your IDE.
+- Open the Java project in your IDE and configure the CodenameOne plugin.
+- Build and run the Java project to start the mobile application.
 
 
 #Usage
