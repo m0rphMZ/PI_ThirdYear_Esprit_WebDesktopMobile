@@ -1,0 +1,106 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Touskieart - Statistiques des réclamations{% endblock %}
+
+{% block cards %}
+    <h1 class="mb-4 m-0 font-weight-bold text-primary">Statistiques des Réclamations</h1>
+    
+    <div class="row">
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Total des réclamations</h5>
+                    <p class="card-text display-4">{{ totalReclamations }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Total des réponses</h5>
+                    <p class="card-text display-4">{{ totalResponses }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Réponses moyennes par réclamation</h5>
+                    <p class="card-text display-4">{{ averageResponsesPerReclamation }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Réclamations résolues</h5>
+                    <p class="card-text display-4">{{ resolvedReclamations|length }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Réclamations non résolues</h5>
+                    <p class="card-text display-4">{{ unresolvedReclamations|length }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Pourcentage de réclamations résolues</h5>
+                    <p class="card-text display-4">{{ percentageResolvedReclamations }}%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Pourcentage de réclamations non résolues</h5>
+                    <p class="card-text display-4">{{ percentageUnresolvedReclamations }}%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Réclamations par type</h5>
+                    <ul class="list-unstyled">
+                        {% for reclamation in reclamationsByType %}
+                            <li>{{ reclamation.type }}: {{ reclamation.count }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Type de réclamation le plus fréquent</h5>
+                    <p class="card-text display-4">{{ typeWithMostReclamations }}</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+{% endblock %}
+
+{% block topbar %}{% endblock %}
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}
+{% block footer %}{% endblock %}

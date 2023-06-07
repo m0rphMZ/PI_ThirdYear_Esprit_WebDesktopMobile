@@ -1,0 +1,125 @@
+{% extends 'adminBase.html.twig' %}
+
+
+{% block title %}Touskieart Support{% endblock %}
+
+
+
+{% block cards %}
+    <div class="hero">
+        <div class="container">
+            <h1 class="m-0 font-weight-bold text-primary">Touskieart - Assistance</h1>
+            <h2>Liste des réclamations</h2>
+        </div>
+    
+
+    <div class="container mt-4" data-aos="fade-up">
+        <div class="row">
+            {% if reclamations is empty %}
+                <p>Il n'y a aucune réclamation pour le moment.</p>
+            {% else %}
+                <div class="row">
+                    {% for reclamation in reclamations %}
+                        {% if loop.length == 1 %}
+                            <div class="col-md-12 mb-4">
+                        {% else %}
+                            <div class="col-md-4 mb-4">
+                        {% endif %}
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title"><span class="text-primary">#</span> {{ reclamation.recId }}</h4>
+                                    <h5 class="card-title"><span class="text-primary">Titre :</span><br> {{ reclamation.titreRec }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><span class="text-primary">Type :</span> {{ reclamation.type }}</h6>
+                                    <p class="card-text"> <span class="text-primary">Status :</span> {{ reclamation.status }}</p>
+                                    <p class="card-text"><span class="text-primary">Créé par :</span> {{ reclamation.User.nom }}</p>
+                                    <p class="card-text"><span class="text-primary">ID de l'utilisateur :</span> {{ reclamation.User.idUser }}</p>
+                                    <p class="card-text"><span class="text-primary">Créé le :</span> {{ reclamation.dateCreation|date('m/d/Y') }}</p>
+                                    <a href="{{ path('show_reclamationById_admin', { 'id': reclamation.recId }) }}" class="btn btn-primary">Consulter la Réclamation</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row justify-content-center">
+                    <div class="d-flex justify-content-center my-4">
+                                            {{ knp_pagination_render(reclamations, 'pagination.html.twig') }}
+                                        </div>
+                </div>
+                </div>
+{% endblock %}
+
+
+
+
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}
+
+
+
+
+
+
+
+{#
+{% block cards %}
+    <div class="hero">
+        <div class="container">
+            <h1 >Touskieart - Assitance </h1>
+            <h2 >Liste des réclamations</h2>
+        </div>
+    </div>
+
+    <div class="container mt-4" data-aos="fade-up">
+        <div class="row">
+            <div class="col-md-12">
+                {% if reclamations is empty %}
+                    <p>Il n'y a aucune réclamation pour le moment.</p>
+                {% else %}
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Liste des réclamations</h5>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Titre</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Statut</th>
+                                        <th scope="col">Créé par</th>
+                                        <th scope="col">ID de l'utilisateur</th>
+                                        <th scope="col">Créé le</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for reclamation in reclamations %}
+                                        <tr class="reclamation-row" data-href="{{ path('app_reclamation', { 'id': reclamation.recId }) }}">
+                                            <td>{{ reclamation.recId }}</td>
+                                            <td>{{ reclamation.titreRec }}</td>
+                                            <td>{{ reclamation.type }}</td>
+                                            <td>{{ reclamation.status }}</td>
+                                            <td>{{ reclamation.User.nom }}</td>
+                                            <td>{{ reclamation.User.idUser }}</td>
+                                            <td>{{ reclamation.dateCreation|date('m/d/Y') }}</td>
+                                            <td class="text-right">
+                                                <a href="{{ path('show_reclamationById_admin', { 'id': reclamation.recId }) }}" class="btn-more-btn">Consulter la Réclamation</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+#}
+
+

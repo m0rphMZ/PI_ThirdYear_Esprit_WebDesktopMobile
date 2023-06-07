@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block hero %}
+<div class="container-fluid" style="background-image: url('{{ asset('uploads/images/Background.png') }}'); background-size: cover; background-position: center center; min-height: 100vh;">
+{% if app.session.get('user').role == 'Admin' %}
+<a href="{{ path('app_user_index') }}"class="btn btn-primary mt-3" style="background-color: #210777; border: none; color: #fff;">Retour à la liste</a>
+
+{% else %}
+<a href="{{ path('app_home') }}"class="btn btn-primary mt-3" style="background-color: #210777; border: none; color: #fff;">Retour</a>
+ {% endif %}   
+    
+    <div class="container py-5" >
+    <br><br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-light border-0 shadow" >
+                    <div class="card-body text-center"  >
+                        <img src="{{ asset('uploads/images/' ~ user.image) }}" class="rounded-circle mb-3" width="200" height="200">
+                        <h4 class="card-title">{{ user.nom }} {{ user.prenom }}</h4>
+                        <p class="card-text">{{ user.role }}</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-8">
+                <div class="card bg-light border-0 shadow">
+                    <div class="card-body" >
+                        <h4 class="card-title">Informations personnelles</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4"><strong>Nom :</strong></div>
+                            <div class="col-md-8">{{ user.nom }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"><strong>Prénom :</strong></div>
+                            <div class="col-md-8">{{ user.prenom }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"><strong>Email :</strong></div>
+                            <div class="col-md-8">{{ user.email }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"><strong>Tel :</strong></div>
+                            <div class="col-md-8">{{ user.tel }}</div>
+                        </div>
+                        <hr>
+                        <div class="text-end">
+  <div class="row">
+    <div class="col-md-6">
+      <a href="{{ path('app_user_edit', {'idUser': user.idUser}) }}" class="btn btn-primary" style="background-color: #ee568e; border: none; color: #fff;">Modifier</a>
+    </div>
+    <div class="col-md-6">
+      {{ include('user/_delete_form.html.twig') }}
+    </div>
+  </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block About %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}

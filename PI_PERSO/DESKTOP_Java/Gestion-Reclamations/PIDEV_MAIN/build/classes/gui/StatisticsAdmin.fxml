@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StatisticsAdminController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@BackgroundRec.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="25.0" layoutY="25.0" prefHeight="550.0" prefWidth="750.0" style="-fx-background-color: WHITE;">
+         <children>
+            <BorderPane prefHeight="550.0" prefWidth="750.0">
+               <top>
+                  <AnchorPane prefHeight="69.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="105.0" layoutY="23.0" text="Statistiques pour toutes les reclamations :" textFill="#ee586e">
+                           <font>
+                              <Font name="Verdana Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Line endX="358.0" layoutX="378.0" layoutY="61.0" startX="-362.0" stroke="#ee586e" strokeWidth="2.0" />
+                        <ImageView fx:id="GoBackBtn" fitHeight="45.0" fitWidth="45.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#GoBk" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: HAND;">
+                           <image>
+                              <Image url="@GoBack.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <center>
+                  <AnchorPane BorderPane.alignment="CENTER">
+                     <children>
+                        <ScrollPane fx:id="StatisticsScroll" prefHeight="467.0" prefWidth="750.0">
+                           <content>
+                              <AnchorPane prefHeight="605.0" prefWidth="747.0">
+                                 <children>
+                                    <PieChart fx:id="StatsChart" prefHeight="349.0" prefWidth="747.0" />
+                                    <HBox layoutX="19.0" layoutY="405.0" prefHeight="125.0" prefWidth="705.0" style="-fx-spacing: 30;">
+                                       <children>
+                                          <AnchorPane prefHeight="125.0" prefWidth="110.0" style="-fx-border-radius: 30; -fx-border-width: 5; -fx-border-color: #ee586e;">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="8.0" prefHeight="37.0" prefWidth="125.0" text="Nombre total de réclamations :" textFill="#ee586e" wrapText="true">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="NbrReclamAll" alignment="CENTER" layoutX="20.0" layoutY="63.0" prefHeight="23.0" prefWidth="106.0" text="N" textFill="#ee586e">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="125.0" prefWidth="110.0" style="-fx-border-radius: 30; -fx-border-width: 5; -fx-border-color: #ee586e;">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="17.0" layoutY="14.0" prefHeight="31.0" prefWidth="125.0" text="Réclamations ouvertes :" textFill="#ee586e" wrapText="true">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="NbrReclamOpen" alignment="CENTER" layoutX="17.0" layoutY="63.0" prefHeight="23.0" prefWidth="110.0" text="N" textFill="#ee586e">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="125.0" prefWidth="110.0" style="-fx-border-radius: 30; -fx-border-width: 5; -fx-border-color: #ee586e;">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="22.0" layoutY="14.0" prefHeight="37.0" prefWidth="126.0" text="Réclamations fermées :" textFill="#ee586e" wrapText="true">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="NbrReclamClosed" alignment="CENTER" layoutX="17.0" layoutY="63.0" prefHeight="23.0" prefWidth="115.0" text="N" textFill="#ee586e">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="125.0" prefWidth="110.0" style="-fx-border-radius: 30; -fx-border-width: 5; -fx-border-color: #ee586e;">
+                                             <children>
+                                                <Label alignment="CENTER" layoutX="17.0" prefHeight="55.0" prefWidth="127.0" text="Type avec le plus grand nombre de réclamations" textFill="#ee586e" wrapText="true">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="10.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="TypeRecMost" alignment="CENTER" layoutX="17.0" layoutY="63.0" prefHeight="23.0" prefWidth="120.0" text="N" textFill="#ee586e">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

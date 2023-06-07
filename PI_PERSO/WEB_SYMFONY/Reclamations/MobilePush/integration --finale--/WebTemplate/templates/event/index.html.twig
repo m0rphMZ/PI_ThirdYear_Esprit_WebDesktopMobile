@@ -1,0 +1,181 @@
+{% extends 'AyBase.html.twig' %}
+
+{% block title %}Liste des événements{% endblock %}
+
+{% block body %}
+
+{% if app.session.get('user') is not null %}
+<div>
+    <a href="{{ path('app_event_new') }}" 
+    style="
+        background: var(--color-primary);
+        border: 0;
+        padding: 14px 60px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 50px;
+    ">Create new</a></div>
+    {% else %}
+    <div>
+    <a href="{{ path('app_login') }}" 
+    style="
+        background: var(--color-primary);
+        border: 0;
+        padding: 14px 60px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 50px;
+    ">Create new</a></div>
+    {% endif %}
+{# =========== Search Code ================ #}
+<div class="form-group mt-3">
+        <input type="checkbox" id="advancedSearchToggle" name="advancedSearch" value="1">
+        <label for="advancedSearchToggle">Advanced Search</label>
+</div>
+<!-- advanced search criteria -->
+    <div id="advancedSearchCriteria" style="display: none;">
+        
+<form action="{{ path('app_event_index') }}" method="get">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" value="{{ criteria.title }}">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <select name="type" class="form-control">
+                    <option value="">-- All --</option>
+                    <option value="outdoors"{{ criteria.type == 'outdoors' ? ' selected' : '' }}>Outdoors</option>
+                    <option value="Conference"{{ criteria.type == 'Conference' ? ' selected' : '' }}>Conference</option>
+                    <option value="Exhibition"{{ criteria.type == 'Exhibition' ? ' selected' : '' }}>Exhibition</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="date" name="startDate" class="form-control" value="{{ criteria.startDate }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input type="date" name="endDate" class="form-control" value="{{ criteria.endDate }}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="minPrice">Min. Price</label>
+                <input type="number" name="minPrice" class="form-control" value="{{ criteria.minPrice }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="maxPrice">Max. Price</label>
+                <input type="number" name="maxPrice" class="form-control" value="{{ criteria.maxPrice }}">
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Advanced sorting criteria -->
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="sort">Sort by</label>
+                <select name="sort" class="form-control">
+                    <option value="title">Title</option>
+                    <option value="type">Type</option>
+                    <option value="startdate">Start date</option>
+                    <option value="enddate">End date</option>
+                    <option value="ticketprice">Ticket price</option>
+                </select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="order">Order by</label>
+                <select name="order" class="form-control">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+    <!-- ======= Chefs Section ======= -->
+    <section id="chefs" class="chefs section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <p>La <span>liste</span> des Evénements</p>
+        </div>
+
+        <div class="row gy-4">
+
+          {% for event in events %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="chef-member">
+              <div class="member-img">
+                <img src="{{ asset('uploads/images/' ~ event.affiche) }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="#"><i class="bi bi-twitter"></i></a>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{ event.title }}</h4>
+                <span>{{ event.type }}</span>
+                <span>{{ event.startdate ? event.startdate|date('d-m-Y') : '' }} - {{ event.enddate ? event.enddate|date('d-m-Y') : '' }}</span>
+                <p>{{ event.ticketprice }} dt.</p>
+                <a href="{{ path('app_event_show', {'eventId': event.eventId}) }}">Voir plus d'informations</a>
+              </div>
+            </div>
+          </div><!-- End Chefs Member -->
+            {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Chefs Section -->
+
+    {% if events|length > 0 %}
+        <div class="d-flex justify-content-center my-4">
+            {{ knp_pagination_render(events) }}
+        </div>
+    {% endif %}
+
+    {# ========== Advanced Search Toggle =========== #}
+<script>
+    const advancedSearchToggle = document.getElementById('advancedSearchToggle');
+    const advancedSearchCriteria = document.getElementById('advancedSearchCriteria');
+
+    advancedSearchToggle.addEventListener('change', () => {
+        if (advancedSearchToggle.checked) {
+            advancedSearchCriteria.style.display = 'block';
+        } else {
+            advancedSearchCriteria.style.display = 'none';
+        }
+    });
+</script>
+{% endblock %}
+

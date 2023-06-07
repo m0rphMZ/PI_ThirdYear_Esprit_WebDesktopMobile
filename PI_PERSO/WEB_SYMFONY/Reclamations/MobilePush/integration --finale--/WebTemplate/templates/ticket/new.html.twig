@@ -1,0 +1,14 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}New Ticket{% endblock %}
+
+{% block cards %}
+    <h1>Create new Ticket</h1>
+
+    {{ include('ticket/_form.html.twig') }}
+
+    <a href="{{ path('app_ticket_index_admin') }}">back to list</a>
+{% endblock %}
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'AyBase.html.twig' %}
+
+{% block title %}{{ event.title }}{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path('app_event_index') }}">back to list</a>
+
+    <a href="{{ path('app_event_edit', {'eventId': event.eventId}) }}">edit</a>
+
+
+
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>{{ event.title }}</h2>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-7 position-relative about-img" style="background-image: url({{ asset('uploads/images/' ~ event.affiche) }}" data-aos="fade-up" data-aos-delay="150">
+            <div class="call-us position-absolute">
+              <h4>Ticket Price: {{ event.ticketprice }} dt.</h4>
+              {% if event.ticketCount > 0 %}
+                <form method="post" action="{{ path('app_ticket_checkout_tic', {'id': event.eventId}) }}">
+                    <button type="submit" onclick="return confirm('Are you sure you want to buy this ticket?')" 
+                    style="
+                        background: var(--color-primary);
+                        border: 0;
+                        padding: 14px 60px;
+                        color: #fff;
+                        transition: 0.4s;
+                        border-radius: 50px;
+                    ">Buy Ticket</button>
+                </form>
+            {% else %}
+                <p>Sold Out</p>
+            {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+            <div class="content ps-0 ps-lg-5">
+            <ul>
+                <li><i class="bi bi-check2-all"></i>Type</li>
+            </ul>
+            <p class="fst-italic">
+                {{ event.type }}
+            </p>
+
+            <ul>
+                <li><i class="bi bi-check2-all"></i>Description</li>
+            </ul>
+            <p class="fst-italic">
+                {{ event.description }}
+            </p>
+
+            <ul>
+                <li><i class="bi bi-check2-all"></i>Date:</li>
+            </ul>
+            <p class="fst-italic">
+                {{ event.startdate ? event.startdate|date('Y-m-d') : '' }} - {{ event.enddate ? event.enddate|date('Y-m-d') : '' }}
+            </p>
+
+            <ul>
+                <li><i class="bi bi-check2-all"></i>Ticket count:</li>
+            </ul>
+            <p class="fst-italic">
+                {{ event.ticketcount }}
+            </p>
+
+            <ul>
+                <li><i class="bi bi-check2-all"></i>Location:</li>
+            </ul>
+            <p class="fst-italic">
+                {{ event.location.getLieuLoc() }}
+            </p>
+
+            <ul>
+                <li><i class="bi bi-check2-all"></i>Host:</li>
+            </ul>
+            <p class="fst-italic">
+                {{ event.host.getNom() ~" "~ event.host.getPrenom() }}
+            </p>
+            
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+    <h2>Comments</h2>
+    {{ commentaireResponse|raw }}
+
+    {# {{ include('event/_delete_form.html.twig') }} #}
+{% endblock %}

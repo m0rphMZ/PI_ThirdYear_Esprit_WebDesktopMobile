@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReclamationAdminController">
+   <children>
+      <VBox prefHeight="93.0" prefWidth="182.0">
+         <children>
+            <ImageView fitHeight="92.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Complaint.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="70.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff00" height="235.0" layoutX="4.0" layoutY="4.0" stroke="#ee586e" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="4.0" width="174.0" />
+      <Label layoutX="8.0" layoutY="62.0" text="Type De Reclamation :" textFill="#ee586e">
+         <font>
+            <Font name="Verdana Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="TypRecAdmin" layoutX="10.0" layoutY="79.0" prefHeight="15.0" prefWidth="53.0" text="TypRec">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="8.0" layoutY="103.0" text="Status De Reclamation:" textFill="#ee586e">
+         <font>
+            <Font name="Verdana Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="StatusRecAdmin" layoutX="9.0" layoutY="119.0" text="StatusRec">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="DateCreationOrClosure" layoutX="8.0" layoutY="143.0" text="Date de creation:" textFill="#ee586e">
+         <font>
+            <Font name="Verdana Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="DateRecAdmin" layoutX="10.0" layoutY="158.0" prefHeight="15.0" prefWidth="165.0" text="DateRec" wrapText="true">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="BtnOpnRecAdmin" alignment="CENTER" layoutX="9.0" layoutY="197.0" mnemonicParsing="false" onAction="#OpenRecAdmin" prefHeight="36.0" prefWidth="165.0" styleClass="button" text="Ouvrir la réclamation" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0" />
+         </effect>
+         <stylesheets>
+            <URL value="@style.css" />
+            <URL value="@style.css" />
+         </stylesheets>
+      </Button>
+   </children>
+</AnchorPane>

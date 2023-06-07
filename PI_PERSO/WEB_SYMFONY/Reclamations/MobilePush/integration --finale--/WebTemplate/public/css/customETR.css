@@ -1,0 +1,119 @@
+/* =============================
+Form Code:
+============================= */
+.EventFormS {
+    padding: 40px;
+    }
+    
+    @media (max-width: 575px) {
+    .EventFormS {
+    padding: 20px;
+    }
+    }
+    
+    .EventFormS h3 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    }
+    
+    .EventFormS h4 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 20px 0 0 0;
+    }
+    
+    .EventFormS p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    }
+    
+    .EventFormS .error-message {
+    display: none;
+    color: #fff;
+    background: #df1529;
+    text-align: left;
+    padding: 15px;
+    margin-bottom: 24px;
+    font-weight: 600;
+    }
+    
+    .EventFormS .sent-message {
+    display: none;
+    color: #fff;
+    background: #059652;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 24px;
+    font-weight: 600;
+    }
+    
+    /* .EventFormS .loading {
+    display: none;
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 24px;
+    }
+    
+    .EventFormS .loading:before {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 10px -6px 0;
+    border: 3px solid #059652;
+    border-top-color: #fff;
+    animation: animate-loading 1s linear infinite;
+    } */
+    
+    .EventFormS input,
+    .EventFormS textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    border-radius: 0;
+    }
+    
+    .EventFormS input:focus,
+    .EventFormS textarea:focus {
+    border-color: var(--color-primary);
+    }
+    
+    .EventFormS input {
+    padding: 12px 15px;
+    }
+    
+    .EventFormS textarea {
+    padding: 12px 15px;
+    }
+    
+    .EventFormS button[type=submit] {
+    background: var(--color-primary);
+    border: 0;
+    padding: 14px 60px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+    }
+    
+    .EventFormS button[type=submit]:hover {
+    background: #7A59E4;
+    }
+
+    .GBtn {
+        background: var(--color-primary);
+        border: 0;
+        padding: 14px 60px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 50px;
+        }
+        
+    .GBtn:hover {
+        background: #7A59E4;
+        }

@@ -1,0 +1,14 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Edit CategorieLoc{% endblock %}
+
+{% block cards %}
+<br><br>
+  <h2 style="margin-left:90px;font-family: 'Roboto', sans-serif; color:#6f42c1;">Edit CategorieLoc</h2>
+  <br></br>
+    {{ include('categorie_loc/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_categorie_loc_index') }}">back to list</a>
+
+    {{ include('categorie_loc/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+<div class="col-lg-6 form-group">
+    {{ form_label(form.adresse) }}
+
+    {{ form_widget(form.adresse,{'attr':{'class':'form-control'}}) }}
+</div>
+<div class="col-lg-6 form-group">
+    {{ form_label(form.email) }}
+
+    {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+</div>
+<div class="col-lg-6 form-group">
+    {{ form_label(form.commande) }}
+
+    {{ form_widget(form.commande,{'attr':{'class':'form-control'}}) }}
+</div>
+
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

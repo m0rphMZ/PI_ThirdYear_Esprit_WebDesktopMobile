@@ -1,0 +1,60 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block Project %}
+    <h1>Produit</h1>
+ 
+
+    <table class="table">
+        <tbody>
+       
+            <tr>
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Codeproduit</th>
+                <td>{{ produit.codeproduit }}</td>
+            </tr>
+            <tr>
+                <th>Des</th>
+                <td>{{ produit.des }}</td>
+            </tr>
+            <tr>
+                <th>Qtestock</th>
+                <td>{{ produit.qtestock }}</td>
+            </tr>
+            <tr>
+                <th>Qtemin</th>
+                <td>{{ produit.qtemin }}</td>
+            </tr>
+            <tr>
+                <th>Prixunitaire</th>
+                <td>{{ produit.prixunitaire }}</td>
+            </tr>
+            <tr>
+                <th>Idunite</th>
+                <td>{{ produit.idunite }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td> <img  class ="montassar" src="../images/{{produit.image}}"</td>
+            </tr>
+            <tr>
+                <th>Idcat</th>
+                <td>{{ produit.idcat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_produit_index') }}">back to list</a>
+
+    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+
+    {{ include('produit/_delete_form.html.twig') }}
+{% endblock %} 
+  
+    
+     {% block charts %} {% endblock %}
+       {% block cards %} {% endblock %}

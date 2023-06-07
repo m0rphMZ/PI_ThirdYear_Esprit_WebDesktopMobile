@@ -1,0 +1,29 @@
+<section class="contact-section spad" style="background-color: white;color: black">
+    <div class="container">
+        <div class="row" style="height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: right;">
+
+            <div class="col-lg-8 offset-lg-1">
+                <div class="contact-form">
+                    {{ form_start(form) }}
+
+                    <div class="col-lg-6 form-group">
+                        {{ form_label(form.adresse) }}
+
+                        {{ form_widget(form.adresse,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    <div class="col-lg-6 form-group">
+                        {{ form_label(form.email) }}
+                        {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

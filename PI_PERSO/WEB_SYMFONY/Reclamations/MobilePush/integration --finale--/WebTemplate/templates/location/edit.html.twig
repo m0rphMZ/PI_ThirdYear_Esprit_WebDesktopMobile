@@ -1,0 +1,26 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Edit Location{% endblock %}
+
+{% block cards %}
+    <h1 style="font-family: 'Roboto', sans-serif; color:#6f42c1; margin-right:110;">Edit Location</h1>
+
+    {{ include('location/_form.html.twig', {'button_label': 'update' }) }}
+</div>
+
+
+    {{ include('location/_delete_form.html.twig' , {'button_label': 'supprimer'})}}
+       <br></br>
+       <br></br>
+        <a href="{{ path('app_location_index') }}">back to list</a>
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}

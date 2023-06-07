@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau commentaire{% endblock %}
+
+{% block hero %}
+
+
+        <a href="{{ path('app_event_index') }}" class="btn btn-secondary btn-block mt-3" style="background-color: #dcdcdc; color: black;">Retour</a>
+  
+  <br><br><br>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1 class="text-center mb-4">ajouter un nouveau commentaire</h1>
+        
+        <form method="POST" action="{{ path('app_commentaire_new', {'eventId': eventId}) }}">
+          {{ form_start(form) }}
+          {{ form_widget(form) }}
+          <button type="submit" class="btn btn-primary btn-block mt-4" style="background-color: #ff69b4;">Commentez</button>
+          {{ form_end(form) }}
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block About %}{% endblock %}
+
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,15 @@
+ {% for produit in produits %}
+              <div class="col-lg-4 menu-item">
+                <a href="{{ asset('../images/' ~ produit.image ) }}" class="glightbox"><img src="../images/{{produit.image}}" class="menu-img img-fluid " alt=""></a>
+                <h4>{{ produit.codeproduit }}</h4>
+                <p class="ingredients">
+                  {{ produit.des }}
+                </p>
+                <p class="price">
+                 {{ produit.prixunitaire }} TND
+                </p>
+              </div><!-- Menu Item -->
+
+     
+ {% endfor %}
+      

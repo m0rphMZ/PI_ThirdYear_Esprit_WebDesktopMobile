@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Touskieart - Home{% endblock %}
+
+
+{% block hero %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center section-bg">
+    <div class="container">
+      <div class="row justify-content-between gy-5">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+          <h2 data-aos="fade-up">Faire des événements<br>est notre passion</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Bienvenue chez Touskieart, votre guichet unique pour organiser des événements inoubliables et acheter des produits qui vous passionnent.</p>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a href={{ path ('app_event_index') }} class="btn-book-a-table">Trouver un événement</a>
+            {# <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> #}
+          </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+          {# <img src="{{ asset('img/hero-img.png') }}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300"> #}
+          <img src="{{ asset('img/img-home.png') }}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+  {% endblock %}
+
+
+
+  {% block About %}
+  <main id="main">
+
+    <!-- ======= À propos de Touskieart ======= -->
+<section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+      <h2>À propos de Touskieart</h2>
+      <p>En savoir plus <span>à propos de notre projet</span></p>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-lg-7 position-relative about-img" style="background-image: url({{ asset('img/events-1.jpg) ;') }}" data-aos="fade-up" data-aos-delay="150">
+        <div class="call-us position-absolute">
+          <h4>Pour plus de conseils, appelez</h4>
+          <p>+216 12 345 678</p>
+        </div>
+      </div>
+      <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+        <div class="content ps-0 ps-lg-5">
+          <p class="fst-italic">
+            Touskieart est une plateforme en ligne qui permet à ses utilisateurs d'acheter des billets pour des événements culturels et artistiques. Mais Touskieart offre également la possibilité de créer ses propres événements et de les publier sur la plateforme afin que d'autres utilisateurs puissent y accéder.
+          </p>
+          <ul>
+            <li><i class="bi bi-check2-all"></i> Une large sélection d'événements à portée de main.</li>
+            <li><i class="bi bi-check2-all"></i> Des outils de création d'événements intuitifs et faciles à utiliser.</li>
+            <li><i class="bi bi-check2-all"></i> Une communauté active et engagée d'utilisateurs passionnés d'art et de culture.</li>
+          </ul>
+          <p>
+            Chez Touskieart, nous croyons que l'art et la culture sont des éléments essentiels de la vie humaine, et nous nous engageons à rendre ces expériences accessibles à tous.
+          </p>
+
+          <div class="position-relative mt-4">
+            <img src="{{ asset('img/events-3.jpg') }}" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=hyRpCa9Qv48" class="glightbox play-btn"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End À propos de Touskieart -->
+{% endblock %}
+
+
+
+    {% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}

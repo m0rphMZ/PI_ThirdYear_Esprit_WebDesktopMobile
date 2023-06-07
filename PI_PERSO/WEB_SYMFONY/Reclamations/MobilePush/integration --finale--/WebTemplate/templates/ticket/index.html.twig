@@ -1,0 +1,46 @@
+{% extends 'AyBase.html.twig' %}
+
+{% block title %}Ticket index{% endblock %}
+
+{% block body %}
+    <h1>Ticket List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ticket Owner</th>
+                <th>Event</th>
+                <th>Price</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.user.nom ~" "~ ticket.user.prenom }}</td>
+                <td>{{ ticket.event.title }}</td>
+                <td>{{ ticket.price }}</td>
+                <td>{{ ticket.event.startdate|date('d-m-Y') }}</td>
+                <td>{{ ticket.event.enddate|date('d-m-Y') }}</td>
+                <td>
+                    <a href="{{ path('app_ticket_print', {'ticketId': ticket.ticketId}) }}">Print Ticket</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if tickets|length > 0 %}
+        <div class="d-flex justify-content-center my-4">
+            {{ knp_pagination_render(tickets) }}
+        </div>
+    {% endif %}
+
+    {# <a href="{{ path('app_ticket_new') }}">Create new</a> #}
+{% endblock %}

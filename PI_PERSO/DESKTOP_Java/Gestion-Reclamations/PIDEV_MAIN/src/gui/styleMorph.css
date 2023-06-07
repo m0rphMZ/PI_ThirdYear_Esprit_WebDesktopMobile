@@ -1,0 +1,30 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 17, 2023, 10:44:28 PM
+    Author     : Theto
+*/
+.button {
+  -fx-background-color: #EE586E;
+  -fx-text-fill: white;
+  -fx-font-size: 14;
+  -fx-background-radius: 10;
+  -fx-cursor: hand;
+  -fx-background-insets: 0 0 0 0, 0, 0, 0;
+  -fx-background-radius: 10;
+  -fx-padding: 8 16;
+  -fx-effect: null;
+  -fx-transition: all 0.3s;
+}
+
+.button:hover {
+  -fx-background-color: #A05385;
+}
+
+.button:pressed {
+  -fx-background-color: #A05385;
+  -fx-text-fill: black;
+}
+

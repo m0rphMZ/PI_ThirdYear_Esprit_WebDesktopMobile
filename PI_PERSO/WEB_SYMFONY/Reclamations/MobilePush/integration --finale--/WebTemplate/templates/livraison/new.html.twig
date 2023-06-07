@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Livraison{% endblock %}
+
+{% block hero %}
+<section class="contact-section spad" style="background-color: white;color: black">
+    <div class="container">
+        <div class="row" style="height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: right;">
+
+            <div class="col-lg-8 offset-lg-1">
+                <div class="contact-form">
+                    {{ form_start(form) }}
+
+                    <div class="col-lg-6 form-group">
+                        {{ form_label(form.adresse) }}
+
+                        {{ form_widget(form.adresse,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    <div class="col-lg-6 form-group">
+                        {{ form_label(form.email) }}
+                        {{ form_widget(form.email,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    
+                    
+                    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+   
+{% endblock %}
+{% block About %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}
+{% block footer %}{% endblock %}
+

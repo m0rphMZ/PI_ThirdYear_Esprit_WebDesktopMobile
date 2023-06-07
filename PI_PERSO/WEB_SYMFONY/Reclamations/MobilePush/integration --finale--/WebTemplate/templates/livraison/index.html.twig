@@ -1,0 +1,36 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Livraison index{% endblock %}
+
+{% block cards %}
+    <h1>Livraison index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Adresse</th>
+            <th>Date</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for livraison in livraisons %}
+            <tr>
+                <td>{{ livraison.id }}</td>
+                <td>{{ livraison.adresse }}</td>
+                <td>{{ livraison.date ? livraison.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_livraison_show', {'id': livraison.id}) }}">show</a>
+                    <a href="{{ path('app_livraison_edit', {'id': livraison.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

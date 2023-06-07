@@ -1,0 +1,91 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Hello CommandeController!{% endblock %}
+{% block cards %}
+    <div style="    display: flex;
+    justify-content: space-between;">
+        <a href="{{ path('app_livraison_new_back') }}" class="btn btn-primary">ajout</a>
+        <form action="{{ path('app_livraison_index') }}" method="get">
+            <input type="text" name="rechercheString" placeholder="recherche(email, adresse, etat)">
+            <button class="btn btn-dark" type="submit">Rechercher</button>
+        </form>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <td><a style="color: black" href="{{ path('app_livraison_index_tri_adresse', {'tri':tri}) }}">addresse</a>
+            </td>
+
+            <td><a style="color: black" href="{{ path('app_livraison_index_tri_email', {'tri':tri}) }}">email</a></td>
+            <th>user</th>
+            <th><a style="color: black" href="{{ path('app_livraison_index_tri_date', {'tri':tri}) }}">date</a></th>
+            <th>commande</th>
+            <th><a style="color: black" href="{{ path('app_livraison_index_tri_etat', {'tri':tri}) }}">etat</a></th>
+            <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for livraison in livraisons %}
+            <tr>
+                <td>{{ livraison.adresse }}</td>
+                <td>{{ livraison.email }}</td>
+
+                <td>{{ livraison.commande.user }}</td>
+                <td>{{ livraison.date  | date }}</td>
+                <td>{{ livraison.commande }}</td>
+                <td>
+                    {% if livraison.confirmer %}
+                        confirmé
+                    {% else %}
+                        non confimé
+                    {% endif %}
+                </td>
+                <td>
+                    <form method="post" action="{{ path('app_livraison_delete', {'id': livraison.id}) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ livraison.id) }}">
+                        <button class="btn btn-danger">delete</button>
+                    </form>
+                    <a class="btn btn-success {% if livraison.confirmer %} disabled {% endif %}"
+                       href="{{ path('app_livraison_editconfirm', {'id': livraison.id}) }}">Confirmer </a>
+
+                         
+
+                    <a href="{{ path('app_livraison_edit_back', {'id': livraison.id}) }}" class="btn btn-warning"
+                    >edit</a>
+
+                      </form>
+                      <button class="btn btn-danger" id="confirmer-btn" onclick="afficherChampSaisie()">Confirmer commande par SMS</button>
+                       <div id="champ-saisie" style="display:none;">
+                       <label for="telephone">Numéro de téléphone:</label>
+                       <input type="text" id="telephone" name="telephone" required>
+                       <button onclick="envoyerSMS()">Envoyer SMS</button>
+                           </div>
+                       <script>
+                               function afficherChampSaisie() {
+                                      // Récupérez le bouton "Confirmer"
+                               var confirmerBtn = document.getElementById("confirmer-btn");
+
+                                        // Cachez le bouton "Confirmer"
+                              confirmerBtn.style.display = "none";
+
+                                 // Affichez le champ de saisie
+                                 var champSaisie = document.getElementById("champ-saisie");
+                                       champSaisie.style.display = "block";
+                                             }
+
+</script>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <div style="justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 24px;">{{ knp_pagination_render(livraisons) }}</div>
+
+{% endblock %}
+{% block topbar %}{% endblock %}
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}

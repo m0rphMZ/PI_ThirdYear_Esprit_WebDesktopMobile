@@ -1,0 +1,36 @@
+{{ form_start(form) }}
+<div class="span9">
+    <div class="content">
+
+        <div class="module">
+            <div class="module-head">
+                <h3>edit commande</h3>
+            </div>
+            <div class="module-body">
+
+
+                <br/>
+                <div class="form-group">
+                    {{ form_label(form.date) }}
+
+                    {{ form_widget(form.date,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="controls">
+                    {{ form_label(form.user) }}
+
+                    {{ form_widget(form.user,{'attr':{'class':'span8 tip'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.statue) }}
+
+                    {{ form_widget(form.statue,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}
+
+
+

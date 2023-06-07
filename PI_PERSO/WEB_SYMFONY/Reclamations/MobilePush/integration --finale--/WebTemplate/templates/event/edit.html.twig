@@ -1,0 +1,42 @@
+{% extends 'AyBase.html.twig' %}
+
+{% block title %}Edit Event{% endblock %}
+
+{% block body %}
+    <section id="book-a-table" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+        <p>Modifier <span>l'événement</span></p>
+    </div>
+
+    <div class="row g-0">
+
+        <div class="col-lg-4 reservation-img" style="background-image: url({{ asset('img/reservation.jpg);') }}" data-aos="zoom-out" data-aos-delay="200"></div>
+
+        <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+
+    {{ include('event/_form.html.twig', {'button_label': 'Update'}) }}
+
+    </div><!-- End Reservation Form -->
+
+        </div>
+
+      </div>
+    </section>
+
+    <a href="{{ path('app_event_index') }}">back to list</a>
+
+    {# {{ include('event/_delete_form.html.twig') }} #}
+{% endblock %}
+
+{% block About %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}

@@ -1,0 +1,51 @@
+<div class="EventFormS">
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+
+            
+              <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                {{ form_row(form.title, {'attr': {'class': 'form-control', 'placeholder': 'title'}}) }}
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  {{ form_row(form.type, {'attr': {'class': 'form-control', 'placeholder': 'type'}}) }}
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  {{ form_label(form.affiche) }}
+                  {{ form_widget(form.affiche) }}
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  {{ form_row(form.startdate, {'attr': {'class': 'form-control'}}) }}
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  {{ form_row(form.enddate, {'attr': {'class': 'form-control'}}) }}
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  {{ form_row(form.ticketcount, {'attr': {'class': 'form-control', 'placeholder': 'ticketcount'}}) }}
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  {{ form_row(form.ticketprice, {'attr': {'class': 'form-control', 'placeholder': 'ticketprice'}}) }}
+                  <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  {{ form_label(form.location) }}
+                  {{ form_widget(form.location, {'attr': {'class': 'form-control'}}) }}
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'describe the event', 'rows': 5}}) }}
+                <div class="validate"></div>
+              </div>
+              
+              <div class="text-center mt-3"><button type="Submit">{{ button_label|default('Save') }}</button></div>
+{{ form_end(form) }}
+
+</div>
+          

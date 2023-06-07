@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande{% endblock %}
+
+{% block cards %}
+    <h1>Commande</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>IdC</th>
+            <td>{{ commande.idC }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ commande.date ? commande.date|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>User</th>
+            <td>{{ commande.user }}</td>
+        </tr>
+        <tr>
+            <th>Statue</th>
+            <td>{{ commande.statue }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commande_index') }}">back to list</a>
+
+    <a href="{{ path('app_commande_edit', {'idC': commande.idC}) }}">edit</a>
+
+    {{ include('commande/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Liste des événements{% endblock %}
+
+{% block cards %}
+    <h1>Liste des événements</h1>
+
+{# =========== Search Code ================ #}
+<div class="form-group">
+        <input type="checkbox" id="advancedSearchToggle" name="advancedSearch" value="1">
+        <label for="advancedSearchToggle">Advanced Search</label>
+</div>
+<!-- advanced search criteria -->
+    <div id="advancedSearchCriteria" style="display: none;">
+        
+<form action="{{ path('app_event_index_admin') }}" method="get">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" value="{{ criteria.title }}">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <select name="type" class="form-control">
+                    <option value="">-- All --</option>
+                    <option value="outdoors"{{ criteria.type == 'outdoors' ? ' selected' : '' }}>Outdoors</option>
+                    <option value="Conference"{{ criteria.type == 'Conference' ? ' selected' : '' }}>Conference</option>
+                    <option value="Exhibition"{{ criteria.type == 'Exhibition' ? ' selected' : '' }}>Exhibition</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="date" name="startDate" class="form-control" value="{{ criteria.startDate }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input type="date" name="endDate" class="form-control" value="{{ criteria.endDate }}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="minPrice">Min. Price</label>
+                <input type="number" name="minPrice" class="form-control" value="{{ criteria.minPrice }}">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="maxPrice">Max. Price</label>
+                <input type="number" name="maxPrice" class="form-control" value="{{ criteria.maxPrice }}">
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Advanced sorting criteria -->
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="sort">Sort by</label>
+                <select name="sort" class="form-control">
+                    <option value="title">Title</option>
+                    <option value="type">Type</option>
+                    <option value="startdate">Start date</option>
+                    <option value="enddate">End date</option>
+                    <option value="ticketprice">Ticket price</option>
+                </select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="order">Order by</label>
+                <select name="order" class="form-control">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+{# ============== Event List ==================== #}
+</form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Affiche</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Startdate</th>
+                <th>Enddate</th>
+                <th>Ticketprice</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="event-list">
+        {% for event in events %}
+            <tr>
+                <td><img src="{{ asset('uploads/images/' ~ event.affiche) }}" class="img-fluid" width="200" height="200"></td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.type }}</td>
+                <td>{{ event.startdate ? event.startdate|date('Y-m-d') : '' }}</td>
+                <td>{{ event.enddate ? event.enddate|date('Y-m-d') : '' }}</td>
+                <td>{{ event.ticketprice }}</td>
+                <td>
+                    <a href="{{ path('app_event_show_admin', {'eventId': event.eventId}) }}">show</a>
+                    <a href="{{ path('app_event_edit_admin', {'eventId': event.eventId}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tbody id="searchtab"></tbody>
+    </table>
+
+    {% if events|length > 0 %}
+        <div class="d-flex justify-content-center my-4">
+            {{ knp_pagination_render(events) }}
+        </div>
+    {% endif %}
+
+    <a href="{{ path('app_event_new_admin') }}">Create new</a>
+
+{# ========== Advanced Search Toggle =========== #}
+<script>
+    const advancedSearchToggle = document.getElementById('advancedSearchToggle');
+    const advancedSearchCriteria = document.getElementById('advancedSearchCriteria');
+
+    advancedSearchToggle.addEventListener('change', () => {
+        if (advancedSearchToggle.checked) {
+            advancedSearchCriteria.style.display = 'block';
+        } else {
+            advancedSearchCriteria.style.display = 'none';
+        }
+    });
+</script>
+
+{% endblock %}
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}
+{% block footer %}{% endblock %}
+
+

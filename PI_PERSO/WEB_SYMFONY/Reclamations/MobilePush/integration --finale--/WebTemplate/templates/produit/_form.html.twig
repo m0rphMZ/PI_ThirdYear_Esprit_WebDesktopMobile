@@ -1,0 +1,100 @@
+{{ form_start(form) }}
+    
+
+
+
+
+
+
+
+<table style="width:100%;">
+<tr>
+
+{{ form_label(form.codeproduit) }}
+<td>
+                                        <br>
+                                        {{ form_widget(form.codeproduit) }}
+                                         {{ form_errors(form.codeproduit,{'attd':{'class':'text-danger'}}) }}
+                                        <br>
+                                        <br>
+                                        </td>
+                                        <td>
+                                        {{ form_label(form.des) }}
+                                        <br>
+                                        {{ form_widget(form.des) }}
+                                         {{ form_errors(form.des,{'attd':{'class':'text-danger'}}) }}
+                                        <br>
+                                        <br>
+</td>
+</tr>
+<tr>
+<td>
+                                       {{ form_label(form.qtestock) }}
+                                        <br>
+                                        {{ form_widget(form.qtestock) }}
+                                         {{ form_errors(form.qtestock,{'attd':{'class':'text-danger'}}) }}
+                                        <br>
+                                        <br>
+                                        </td>
+                                        <td>
+                                        
+                                        {{ form_label(form.qtemin) }}
+                                        <br>
+                                        {{ form_widget(form.qtemin) }}
+                                         {{ form_errors(form.qtemin,{'attd':{'class':'text-danger'}}) }}
+                                        <br>
+                                        <br>
+</td>
+</tr>
+<tr>
+<td>
+                                        {{ form_label(form.prixunitaire) }}
+                                        <br>
+                                        {{ form_widget(form.prixunitaire) }}
+                                         {{ form_errors(form.prixunitaire,{'attd':{'class':'text-danger'}}) }}
+                                        <br>
+                                        <br>
+</td>
+<td>
+                                        {{ form_label(form.idunite) }}
+                                        <br>
+                                        {{ form_widget(form.idunite) }}
+                                         {{ form_errors(form.idunite,{'attd':{'class':'text-danger'}}) }}
+                                        <br>
+                                        <br>
+</td>
+</tr>
+<tr>
+<td>
+                      {{ form_label(form.imageFile) }}
+                                        <br>
+                                        {{ form_widget(form.imageFile) }}
+                                         {{ form_errors(form.imageFile,{'attd':{'class':'text-danger'}}) }}
+                                        <br>
+                                        <br>
+</td>
+<td>
+                                        {{ form_label(form.idcat) }}
+                                        <br>
+                                        {{ form_widget(form.idcat) }}
+                                         {{ form_errors(form.idcat,{'attd':{'class':'text-danger'}}) }}
+                                        <br>
+                                        <br>
+</td>
+</tr>
+</table>
+                                        
+
+ 
+
+
+
+                  
+
+{{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+
+
+
+
+                                    {{ form_end(form) }}

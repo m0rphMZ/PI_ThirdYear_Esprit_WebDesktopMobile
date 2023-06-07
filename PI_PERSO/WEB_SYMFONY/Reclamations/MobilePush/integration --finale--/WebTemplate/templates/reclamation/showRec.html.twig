@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Touskieart Assistance - {{ reclamation.titreRec }}{% endblock %}
+
+{% block hero %}
+    <div class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 data-aos="fade-up">Touskieart - Assistance</h1>
+                    <h2 data-aos="fade-up">Détails de la Réclamation</h2>
+                </div>
+                <div class="col-md-4 text-right">
+                    <p class="font-weight-bold">Etat:</p>
+                        {% if reclamation.status == 'Ouvert' %}
+                            {% if reponses|length > 0 %}
+                                <p class="text-warning">En Cours</p>
+                            {% else %}
+                                <p class="text-primary">Aucune réponse</p>
+                            {% endif %}
+                        {% elseif reclamation.status == 'Fermée' %}
+                            <p class="text-success">{{ reclamation.status }}</p>
+                        {% else %}
+                            <p class="text-danger">{{ reclamation.status }}</p>
+                        {% endif %}
+
+                    <p class="font-weight-bold">Date de création:</p>
+                    <p>{{ reclamation.dateCreation|date('m/d/Y') }}</p>
+                    {% if reclamation.dateFin is not null %}
+                        <p class="font-weight-bold">Date de fin:</p>
+                        <p class="text-danger">{{ reclamation.dateFin|date('m/d/Y') }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    
+
+    <div data-aos="fade-up" class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Description de la Réclamation :</h3>
+                <p>{{ reclamation.description }}</p>
+
+                    
+                     {% if reponses|length == 0 %}
+                        {% if reclamation.status == 'Fermée' %}
+                            <div class="mt-5 alert alert-danger">
+                                <h4>Aucune réponse trouvée</h4>
+                            </div>
+                        {% else %}
+                            <h3>Réponses:</h3>
+                            <div class="mt-5 alert alert-info">
+                                <h4>En attente de la réponse de l'administrateur...</h4>
+                            </div>
+                        
+                    {% endif %}
+                    
+                {% else %}
+                    <h3>Réponses:</h3>
+                    <div class="card mb-2">
+                        {% for reponse in reponses %}
+                            <div class="card-header">
+                                {% if reponse.isAdminReponse %}
+                                    <i class="fas fa-user-tie mr-2"></i> Réponse de l'administrateur :
+                                {% else %}
+                                    <i class="fas fa-user mr-2"></i> Votre réponse :
+                                {% endif %}
+                                <span class="float-right">{{ reponse.dateRep|date('m/d/Y') }}</span>
+                            </div>
+                            <div class="card-body">
+                                <p>{{ reponse.repDescription }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if reclamation.status == 'Fermée' %}
+                <h3>La réclamation est fermée.</h3>
+                <a href="{{ path('delete_reclamation', { 'id': reclamation.recId }) }}" class="btn-book-a-table" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette réclamation ?')">Supprimer la Réclamation</a>
+                {% else %}
+                    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+                    
+                    <div class="form-group mt-5">
+                        <h3>Mettre à jour le ticket d'assistance :</h3>
+                        <label for="reponse">Envoyer une réponse de suivi :</label>
+
+                        {{ form_widget(form.rep_description, {'attr': {'class': 'form-control', 'placeholder': 'Jai des informations supplémentaires sur...'}}) }}
+                        <div class="invalid-feedback" style="display: block; color: red;">{{ form_errors(form.rep_description) }}</div>
+
+                    </div>
+                    
+                    <button class="btn-book-a-table" type="submit">Envoyer reponse</button>
+
+                    <a href="{{ path('delete_reclamation', { 'id': reclamation.recId }) }}" class="btn-book-a-table" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette réclamation ?')">Supprimer la Réclamation</a>
+
+                    
+
+                    
+                    {{ form_end(form) }}
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+
+
+{% block About %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    <style>
+        .container.mt-4 {
+            margin-bottom: 50px;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Liste des Categories{% endblock %}
+
+{% block  cards %}
+
+
+
+
+<h1 class="text-center mb-4 " style="font-family: 'Roboto', sans-serif; color:#6f42c1">Liste des categories</h1>
+
+    <a class="btn btn-danger" style="margin-left: 10px;background-color:#EE568E;" href="{{ path('app_categorie_loc_new') }}">ajouter nouvelle categorie</a><br><br>
+      
+      <a href="{{ path('app_categorie_loc_index') }}" style="margin-left: 10px;;"class="btn btn-secondary mt-3"><i class="fas fa-chevron-left"></i> Back to list</a>
+      <br><br>
+      <div><center>
+      
+
+    
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+                <div class="row">
+                    {% for categorie_loc in categorie_locs %}
+                      
+                            <div class="col-md-4 mb-4" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                <div class="card" style="background-color: #d8bfd8;">
+                                   
+                                       
+                                        <div>
+                         <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color:#6f42c1; font-size: 25px; display: inline-block; vertical-align: middle;">code:</h5>
+                      <h5 class="card-title" style="font-size: 25px; display: inline-block; vertical-align: middle;">{{ categorie_loc.codecLoc }}</h5>
+                                        </div> 
+                                        <div>
+                                        <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color:#6f42c1; font-size: 25px; display: inline-block; vertical-align: middle;">libelle:</h5>
+                                        <p class="card-title" style="color: ; font-size: 25px; display: inline-block; vertical-align: middle;"> {{categorie_loc.libellecLoc }}</p>
+                                      </div> 
+                                       
+                                        <a   style="font-size: 20px;"href="{{ path('app_categorie_loc_edit', {'codecLoc': categorie_loc.codecLoc}) }}">edit</a>
+                                       {{ include('categorie_loc/_delete_form.html.twig') }}
+                                 
+                                </div>
+                            </div>
+                       
+                    {% endfor %}
+                </div>
+    
+        </tbody>
+    </table>
+    {{ knp_pagination_render(categorie_locs) }}
+<br></br>
+<br></br>
+                   
+               
+                {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

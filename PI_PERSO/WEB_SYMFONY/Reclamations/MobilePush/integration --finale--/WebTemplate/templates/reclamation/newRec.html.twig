@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Réclamation{% endblock %}
+
+
+
+{% block hero %}  
+    <div class="hero">
+    <section id="reclamation" class="formRec">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Nouvelle Réclamation</h2>
+            <p>Merci de remplir le <span>formulaire</span> ci-dessous</p>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-4 rec-img" style="background-image: url({{ asset('img/ServicesReclam.png') }}" data-aos="zoom-out" data-aos-delay="200"></div>
+            <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+            <div class="rec-form" data-aos="fade-up" data-aos-delay="100">
+            
+                {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+
+
+
+                <div class="row gy-4">
+                    <div class="form-group mt-3">
+                        {{ form_widget(form.titre_rec, {'attr': {'class': 'form-control', 'placeholder': 'Titre de réclamation'}}) }}
+                        <div class="invalid-feedback" style="display: block; color: red;">{{ form_errors(form.titre_rec) }}</div>
+
+                    </div>
+                    <div class="form-group mt-3">
+                        {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+                        <div class="invalid-feedback" style="display: block; color: red;">{{ form_errors(form.type) }}</div>
+                    </div>
+                    <div class="form-group mt-3">
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows': '5', 'placeholder': 'Veuillez décrire en détail votre réclamation ici'}}) }}
+                        <div class="invalid-feedback" style="display: block; color: red;">{{ form_errors(form.description) }}</div>
+                    </div>
+                    
+                <div class="text-center">
+                    <button type="submit">Envoyer Reclamation</button>
+                </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+{% endblock %}
+
+ 
+
+
+
+{% block About %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    <style>
+        /* custom styles for newRec.html.twig */
+        .reservation-form-bg {
+            background-color: #fff;
+            padding: 50px;
+        }
+
+        .rec-img {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 600px;
+        }
+
+        .formRec {
+            background-color: #f8f9fa;
+        }
+
+        .rec-form button{
+            background-color: #EE568E;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 30px;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        .rec-form button:hover {
+            background-color: #7A59E4;
+            color: #fff;
+        }
+    </style>
+
+    <script type="text/javascript">
+    function removePlaceholderOption() {
+        var selectElement = document.getElementById("form_type");
+        if (selectElement.options[0].value === "") {
+            selectElement.removeChild(selectElement.options[0]);
+        }
+    }
+</script>
+{% endblock %}
+
+
+

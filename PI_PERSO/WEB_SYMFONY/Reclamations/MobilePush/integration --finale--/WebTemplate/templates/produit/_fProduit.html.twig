@@ -1,0 +1,23 @@
+{# {% extends 'adminBase.html.twig' %}
+
+{% block title %}    Produit{% endblock %}
+
+{% block cards %}{% endblock %}
+{% block charts %}{% endblock %}
+
+{% block footer %}{% endblock %} #}
+
+{% block Project %}
+<div class ="col-xs1 col-sm4">
+<p> Flitrer </p>
+<form id="filtres">
+{% for categorie in categorie %}
+
+<p><input type="checkbox" name="categories[]" id="cat{{categorie.libcategorie}}" value="{{categorie.libcategorie}}"> <label for="cat{{categorie.libcategorie}}">{{categorie.libcategorie}}</label></p>
+{% endfor %}
+
+{% endblock %}
+
+{% block javaScript %}
+<script src="{{asset('js/filtres.js')}} "></script>
+{% endblock %}

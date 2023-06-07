@@ -1,0 +1,197 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}<h1 >Liste des locaux </h1>     {% endblock %}
+
+
+{% block  cards %}
+
+
+    <h1 class="text-center mb-4 " style="font-family: 'Roboto', sans-serif; color:#6f42c1">Liste des locaux</h1>
+<a class="btn btn-danger" href="{{ path('app_location_new') }}" style="margin-left: 10px;background-color:#EE568E;">ajouter nouveau local</a><br><br>
+   
+<a class="btn btn-danger" href="{{ path('app_categorie_loc_index') }}"  style="margin-left: 15px;background-color:#EE568E;">Gerer  les  categories</a><br><br><br>
+<a href="{{ path('app_location_excel') }}">Exporter en Excel</a>
+<a href="{{ path('app_location_statistic') }}">statistique</a>
+
+     
+
+<style>label {
+  display: inline-block;
+  float: left;
+/* ajustez la largeur selon vos besoins */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: blue; /* ajustez la couleur selon vos besoins */
+  /* ajoute un petit espace entre les éléments */
+}
+button[type="submit"] {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  padding: 9px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left:160px;
+}
+input[type="text"] {
+  display: inline-block;
+  float: left;
+}</style>
+
+  <form method="get" action="{{ path('app_location_index') }}">
+    <div>
+  <label for="lieuLoc" style="display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">Lieu :</label>
+  <input type="text" id="lieuLoc" name="lieuLoc"  value="{{ criteria.lieu_loc ?? '' }}" />
+</div>
+
+<div>
+  <label for="disponibilite" style="display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">Disponibilite :</label>
+  <input type="text" id="surdisponibilitefaceLoc" name="disponibilite" value="{{ criteria.disponibilite ?? '' }}" />
+</div>
+
+<div>
+  <label for="prixLoc" style="display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">Prix :</label>
+  <input type="text" id="prixLoc" name="prixLoc"  value="{{ criteria.prix_loc ?? '' }}" />
+</div>
+
+
+    <div>
+      <label for="sort">Trier par :</label>
+      <select id="sort" name="sort">
+        <option value="lieuLoc_asc" {{ sort == 'lieuLoc_asc' ? 'selected' : '' }}>Lieu (croissant)</option>
+        <option value="surfaceLoc_asc" {{ sort == 'surfaceLoc_asc' ? 'selected' : '' }}>Surface (croissant)</option>
+       <option value="prixLoc_asc" {{ sort == 'prixLoc_asc' ? 'selected' : '' }}>Prix (croissant)</option>
+       
+      </select>
+    </div>
+
+
+    <button type="submit">Filtrer</button>
+  </form>
+
+
+<br></br>
+
+    <table class="table table-hover">
+        <thead class:"table-thead">
+            <tr>
+                <th class="text-info">NumLoc</th>
+                <th class="text-info">DesciptLoc</th>
+                <th class="text-info">LieuLoc</th>
+                <th class="text-info">SurfaceLoc</th>
+                <th class="text-info">NbPersLoc</th>
+                <th class="text-info">PrixLoc</th>
+                <th class="text-info">Equipements</th>
+                <th class="text-info">Disponibilite</th>
+                <th class="text-info">DateAjoutloc</th>
+                 <th class="text-info">Categorie</th>
+                <th class="text-info">Image</th>
+                <th class="text-primary">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}
+        <div class="card" style="background-color: #ffe5ec;">
+            <tr>
+             <div class="member-info">
+            
+                <td>{{ location.numLoc }}</td>
+                <td>{{ location.desciptLoc }}</td>
+                <td>{{ location.lieuLoc }}</td>
+                <td>{{ location.surfaceLoc }}</td>
+                <td>{{ location.nbPersLoc }}</td>
+                <td>{{ location.prixLoc }}</td>
+                <td>{{ location.equipements }}</td>
+                <td>{{ location.disponibilite }}</td>
+                <td>{{ location.dateAloc ? location.dateAloc|date('Y-m-d') : '' }}</td>
+                 
+                  <td>{{   location.codeCatg.libellecLoc}}</td>
+
+
+                <td>
+                 {% if location.image is not null %}
+                  <img src="{{ asset('uploads/local/'~location.image) }}" alt="{{ location.numLoc }}" style="width: 60px; height: 60px;"></td>
+                
+                 {% else %}
+                                            <img src="{{ asset('uploads/local/default.png') }}" alt="{{ location.numLoc }}" class="rounded-circle" style="width: 60px; height: 60px;">
+                                        {% endif %}
+                <td>
+                    <a href="{{ path('app_location_show', {'numLoc': location.numLoc}) }}">show details</a> 
+                     <br></br>
+                    <a href="{{ path('app_location_edit', {'numLoc': location.numLoc}) }}">edit local</a>
+                </td>
+                </div>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </div
+        </tbody>
+    </table>
+    {{ knp_pagination_render(locations) }}
+{% endblock %}
+
+
+
+
+
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}
+
+
+
+
+{% block css %}
+    {{ parent() }}
+    <style>
+        /* custom styles for newRec.html.twig */
+        .reservation-form-bg {
+            background-color: #fff;
+            padding: 50px;
+        }
+        .rec-img {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 600px;
+        }
+        .formRec {
+            background-color: #f8f9fa;
+        }
+        .rec-form button{
+            background-color: #EE568E;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 30px;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+        .rec-form button:hover {
+            background-color: #7A59E4;
+            color: #fff;
+        }
+
+
+        .table-thead{
+
+              background-color: #7A59E4;
+        }
+    </style>
+
+    <script type="text/javascript">
+    function removePlaceholderOption() {
+        var selectElement = document.getElementById("form_type");
+        if (selectElement.options[0].value === "") {
+            selectElement.removeChild(selectElement.options[0]);
+        }
+    }
+</script>
+
+{% endblock %}

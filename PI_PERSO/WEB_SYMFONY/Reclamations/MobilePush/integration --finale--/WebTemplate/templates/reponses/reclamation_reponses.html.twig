@@ -1,0 +1,7 @@
+<h1>Reponses for Reclamation {{ reclamation.recId }}</h1>
+
+<ul>
+{% for reponse in reponses %}
+    <li>{{ reponse.repDescription }}</li>
+{% endfor %}
+</ul>

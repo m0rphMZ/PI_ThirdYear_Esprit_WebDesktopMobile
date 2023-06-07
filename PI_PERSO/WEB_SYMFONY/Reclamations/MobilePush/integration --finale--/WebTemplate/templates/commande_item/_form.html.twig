@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+<div class="col-lg-6 form-group">
+    {{ form_label(form.quantity) }}
+
+    {{ form_widget(form.quantity,{'attr':{'class':'form-control'}}) }}
+</div>
+<div class="col-lg-6 form-group">
+    {{ form_label(form.produit) }}
+
+    {{ form_widget(form.produit,{'attr':{'class':'form-control'}}) }}
+</div>
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

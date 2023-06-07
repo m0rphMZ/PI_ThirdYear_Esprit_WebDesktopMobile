@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+    {% block hero %}{% endblock %}
+    {% block WhyUs %} {% endblock %}
+    {% block stats %} {% endblock %}
+    {% block testimonial %} {% endblock %}
+    {% block events %} {% endblock %}
+    {% block booking %} {% endblock %}
+    {% block About %}{% endblock %}
+    {% block contact %}{% endblock %}
+    {% block gallery %}{% endblock %}
+    {% block chef %}{% endblock %}
+{% block title %}New Produit{% endblock %}
+
+
+
+    {% block menu %} <!-- ======= Menu Section ======= -->
+    <section id="menu" class="menu">
+    
+      <div class="container" data-aos="fade-up">
+
+      
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+
+          
+        </ul>
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+
+          <div class="tab-pane fade active show" id="menu-starters">
+
+            <div class="tab-header text-center">
+              <p>Produit</p>
+              <h3>Starters</h3>
+            </div>
+     
+
+            <div class="row gy-5">
+   <div></div>
+   <div class="d-flex ">
+<div class="input-group rounded" style="max-width: 300px;">
+<form action ="{{path('app_produit_search')}}">
+  <input id="search-input"type="search" class="form-control rounded" placeholder="Search"   name="name" />
+ 
+  </form>
+  <a href="{{path('app_produit_trie')}}">trie par prix</a>
+</div></div>
+<div class="form-check">
+  
+   {% for categorie in categories %}
+
+<p><input type="checkbox" name="categories[]" id="cat{{categorie.libcategorie}}" value="{{categorie.libcategorie}}"> <label for="cat{{categorie.libcategorie}}">{{categorie.libcategorie}}</label></p>
+{% endfor %}
+</div>
+
+ <div id="ess"></div>
+ <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6404e28ea0932a001aed0d3f&product=inline-share-buttons&source=platform" async="async"></script>
+ <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+<div></div>
+{% for produit in produits %}
+
+              <div class="col-lg-4 menu-item">
+                <a href="{{ asset('../images/' ~ produit.image ) }}" class="glightbox"><img src="../images/{{produit.image}}" class="menu-img img-fluid " alt=""></a>
+                <h4> <a href="{{ path('app_produit_detail', {'id': produit.id}) }}">{{ produit.codeproduit }}</a></h4>
+                <p class="ingredients">
+                  {{ produit.des }}
+                </p>
+                <p class="price">
+                 {{ produit.prixunitaire }} TND
+                </p>
+                <div class="d-flex justify-content-between align-item-center">
+                            {% if app.session.get('user') is not null %}
+                            <a type="button" class="btn btn-danger" href="{{path('cart_add',{id:produit.id})}}">Ajouter au panier</a>
+                            {% else %}
+                            <a type="button" class="btn btn-danger" href={{ path ('app_login') }}>Ajouter au panier</a>
+                            {% endif %}
+                        </div>
+              </div><!-- Menu Item -->
+
+     
+ {% endfor %}
+ 
+
+ {{ knp_pagination_render(produits,'pagination.html.twig') }}
+  
+            
+          </div><!-- End Breakfast Menu Content -->
+
+          </div><!-- End Dinner Menu Content -->
+
+        </div>
+
+      </div>
+    </section><!-- End Menu Section -->{% endblock %}
