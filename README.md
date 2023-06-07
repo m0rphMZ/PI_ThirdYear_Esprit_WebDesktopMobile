@@ -4,13 +4,13 @@ Touskieart is a multiplatform platform for creating events, reserving tickets fo
 
 # Features
 
--User Roles:
+- User Roles:
 
 Normal User: Can browse events, purchase tickets, and make product reservations.
 
 Artist: Can create events, sell products, and manage their inventory.
 
--Event Management:
+- Event Management:
 
 Artists can create events, specifying details such as date, time, location, and ticket prices.
 Users can view event details, check availability, and purchase tickets.
@@ -19,7 +19,7 @@ Product Sales:
 Artists can list their products for sale.
 Users can browse and purchase products.
 
--Reclamation System:
+- Reclamation System:
 
 Users can submit reclamation requests to report issues or seek assistance.
 
