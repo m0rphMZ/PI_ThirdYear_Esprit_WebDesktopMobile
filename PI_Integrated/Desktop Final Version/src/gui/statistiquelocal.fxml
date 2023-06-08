@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="mainform" prefHeight="596.0" prefWidth="838.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLController">
+   <children>
+      <BarChart fx:id="charbar" layoutX="57.0" layoutY="49.0" prefHeight="477.0" prefWidth="738.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <ImageView fx:id="retour" fitHeight="46.0" fitWidth="51.0" layoutX="14.0" layoutY="512.0" onMouseClicked="#retour" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@téléchargement%20(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="23.0" layoutY="23.0" prefHeight="26.0" prefWidth="111.0" text="NBRE LOCAUX" textFill="#fa2c56">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="754.0" layoutY="513.0" prefHeight="22.0" prefWidth="99.0" text="Categorie" textFill="#fa2c56">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Text fill="#fa2c56" layoutX="236.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statisqtique nbre de locaux en fontion des categories" wrappingWidth="532.5365905761719">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

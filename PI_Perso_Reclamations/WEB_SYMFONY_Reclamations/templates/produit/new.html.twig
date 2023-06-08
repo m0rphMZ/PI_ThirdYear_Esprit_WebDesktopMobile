@@ -1,0 +1,24 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}New Produit{% endblock %}
+
+{% block cards %}{% endblock %}
+{% block Project %}
+<div class="container-fluid">
+
+                            
+                               
+                        
+    <h1>Create new Produit</h1>
+
+    {{ include('produit/_form.html.twig') }}
+
+    <a href="{{ path('app_produit_index') }}">back to list</a>
+    </div></div>
+{% endblock %}
+
+
+
+{% block charts %}{% endblock %}
+
+{% block footer %}{% endblock %}

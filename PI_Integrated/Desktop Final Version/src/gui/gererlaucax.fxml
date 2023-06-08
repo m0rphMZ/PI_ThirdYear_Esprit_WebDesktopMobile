@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="592.0" prefWidth="1003.0" style="-fx-background-color: #ffffff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GererlocauxController">
+   
+   <children>
+      <TextField fx:id="numField" layoutX="23.0" layoutY="143.0" prefHeight="36.0" prefWidth="186.0" promptText="Numlocal" />
+      <TextField fx:id="descripField" layoutX="23.0" layoutY="220.0" prefHeight="36.0" prefWidth="186.0" promptText="Description" />
+      <TextField fx:id="lieuField" layoutX="23.0" layoutY="298.0" prefHeight="36.0" prefWidth="186.0" promptText="Lieu" />
+      <TextField fx:id="surfaceField" layoutX="23.0" layoutY="367.0" prefHeight="36.0" prefWidth="186.0" promptText="Surface" />
+      <TextField fx:id="nbPersField" layoutX="23.0" layoutY="435.0" prefHeight="36.0" prefWidth="186.0" promptText="NbrePersonnes" />
+      <ComboBox fx:id="cmbx" layoutX="422.0" layoutY="367.0" prefHeight="46.0" prefWidth="166.0" style="-fx-background-color: #fa2c56;" styleClass="combo-box" stylesheets="@interfaceu.css" />
+      <Label layoutX="438.0" layoutY="377.0" prefHeight="26.0" prefWidth="134.0" text="CodeCategorie" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="619.0" layoutY="367.0" mnemonicParsing="false" onAction="#addcombox" prefHeight="46.0" prefWidth="106.0" style="-fx-background-color: #FA2C56;" text="load" textFill="WHITE" />
+      <Button layoutX="682.0" layoutY="500.0" mnemonicParsing="false" onAction="#afficherLocal" prefHeight="46.0" prefWidth="143.0" styleClass="button1" stylesheets="@interfaceu.css" text="Afficher" textFill="#fafaff">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="21.0" />
+         </font>
+      </Button>
+      <Label fx:id="num" layoutX="238.0" layoutY="152.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Label fx:id="descript" layoutX="234.0" layoutY="228.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Label fx:id="lieu" layoutX="238.0" layoutY="307.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Label fx:id="sur" layoutX="227.0" layoutY="376.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Label fx:id="nb" layoutX="234.0" layoutY="443.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Button layoutX="453.0" layoutY="105.0" mnemonicParsing="false" onAction="#parcourir" prefHeight="46.0" prefWidth="175.0" styleClass="button1" stylesheets="@interfaceu.css" text="parcourir image" textFill="#f7e8f6">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+         </font></Button>
+      <Pane layoutX="461.0" layoutY="171.0" prefHeight="130.0" prefWidth="166.0" style="-fx-background-color: #73228c;">
+         <children>
+            <ImageView fx:id="imageView" fitHeight="111.0" fitWidth="134.0" layoutX="16.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Button fx:id="ajouterFielld" layoutX="313.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#ajouterLocal" prefHeight="46.0" prefWidth="143.0" styleClass="button1" stylesheets="@interfaceu.css" text=" Ajouter" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="annn" layoutX="498.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#annulerLocal" prefHeight="46.0" prefWidth="143.0" styleClass="button1" stylesheets="@interfaceu.css" text="Vider" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="21.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="333.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Pidev_Java/src/gui/add-icon-png-2462.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="35.0" layoutX="478.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Pidev_Java/src/gui/cancel%20(1).png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-27.0" prefHeight="86.0" prefWidth="1028.0" style="-fx-background-color: #FA2C56;" stylesheets="@interfaceu.css">
+         <children>
+            <Label layoutX="45.0" layoutY="14.0" prefHeight="18.0" prefWidth="185.0" text="# remplir le local a jouter" textFill="#73228c">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="36.0" fitWidth="91.0" layoutX="757.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Pidev_Java/src/gui/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="106.0" layoutX="855.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="57.0" fitWidth="69.0" layoutX="41.0" layoutY="518.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@téléchargement%20(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="24.0" layoutY="502.0" onMouseClicked="#ret" prefHeight="74.0" prefWidth="91.0" />
+   </children>
+</AnchorPane>

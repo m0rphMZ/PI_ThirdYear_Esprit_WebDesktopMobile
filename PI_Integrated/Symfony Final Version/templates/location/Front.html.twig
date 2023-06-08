@@ -1,0 +1,222 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block title %}Liste des locations{% endblock %}
+
+
+
+    
+
+    
+    {% block hero %}
+   <section id="chefs" class="chefs section-bg">
+      <div class="container" data-aos="fade-up">
+
+       <div class="section-header">
+          <p>La <span>liste</span> des Locaux</p>
+        </div>
+
+
+
+
+    <h1 class="text-center mb-4 " style="font-family: 'Roboto', sans-serif; color:#6f42c1"></h1>
+
+
+     
+
+<style>label {
+  display: inline-block;
+  float: left;
+/* ajustez la largeur selon vos besoins */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: blue; /* ajustez la couleur selon vos besoins */
+  /* ajoute un petit espace entre les éléments */
+}
+button[type="submit"] {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  padding: 9px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left:160px;
+}
+input[type="text"] {
+  display: inline-block;
+  float: left;
+}</style>
+
+  <form method="get" action="{{ path('app_location_indexx') }}">
+    <div>
+  <label for="lieuLoc" style="display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">Lieu :</label>
+  <input type="text" id="lieuLoc" name="lieuLoc"  value="{{ criteria.lieu_loc ?? '' }}" />
+</div>
+
+<div>
+  <label for="disponibilite" style="display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">disponibilite :</label>
+  <input type="text" id="disponibilite" name="disponibilite" value="{{ criteria.disponibilite ?? '' }}" />
+</div>
+
+<div>
+  <label for="prixLoc" style="display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">Prix :</label>
+  <input type="text" id="prixLoc" name="prixLoc"  value="{{ criteria.prix_loc ?? '' }}" />
+</div>
+<br></br>
+
+    <div>
+      <label for="sort">Trier par :</label>
+      <select id="sort" name="sort">
+        <option value="lieuLoc_asc" {{ sort == 'lieuLoc_asc' ? 'selected' : '' }}>Lieu (croissant)</option>
+        <option value="disponibilite_asc" {{ sort == 'disponibilite_asc' ? 'selected' : '' }}>disponibilite (croissant)</option>
+       <option value="prixLoc_asc" {{ sort == 'prixLoc_asc' ? 'selected' : '' }}>Prix (croissant)</option>
+       
+      </select>
+    </div>
+
+
+    <button type="submit">Filtrer</button>
+  </form>
+
+
+
+
+
+
+<br></br>
+
+
+ <div class="row gy-4">
+
+          {% for location in locations %}
+         <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="chef-member">
+              
+                <img src="{{ asset('uploads/local/' ~ location.image) }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+              
+              </div>
+              <div class="member-info">
+                <h4>{{ location.desciptLoc }}</h4>
+                 <h5>Categorie  :   {{ location.codeCatg.libellecLoc}} </h5>
+                <span>{{ location.lieuLoc}}</span>
+                  <p>prix : {{ location.prixLoc}} dt.</p>
+                   <p>{{ location.equipements}}</p>
+                    <p> disponibilite: {{ location.disponibilite}}</p>
+
+                    {% if app.session.get('user') is not null %}
+                    <a class="btn btn-danger" href="{{ path('thankyou') }}" style="margin-left: 10px;">louer</a><br><br><br>
+                    {% else %}
+                    <a href={{path('app_login')}}>Louer</a>
+                    {% endif %}
+              </div>
+            </div>
+          </div><!-- End Chefs Member -->
+            {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+
+         
+
+        </div>
+
+      </div>
+      
+    </section><!-- End Chefs Section -->
+
+    {{ knp_pagination_render(locations) }}
+     
+{% endblock %}
+
+
+
+
+  {% block footer %}
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Adresse</h4>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022 - US<br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contactez nous</h4>
+            <p>
+              <strong>Téléphone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@touskieart.tn<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Heures de service</h4>
+            <p>
+              <strong>Lun-Sam: </strong>11h00 - 23h00<br>
+              <strong>Dimanche: </strong>Fermé
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Suivez-nous</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>TouskieArt</span></strong>. All Rights Reserved
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+  {% endblock %}
+
+
+
+
+{% block About %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}
+

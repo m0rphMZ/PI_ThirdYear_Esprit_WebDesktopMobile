@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié{% endblock %}
+
+{% block hero %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <div class="row justify-content-center mb-4">
+                            <img src="{{ asset('img/logo.png') }}" alt="Logo" class="img-fluid w-50">
+                        </div>
+                        <h1 class="text-center mb-4">Mot de passe oublié</h1>
+
+                        {{ form_start(form) }}
+
+                        <div class="form-group">
+                            {{ form_label(form.email, 'Adresse e-mail') }}
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-outline-secondary btn-sm" style="background-color: #ee568e;">Vérifier</button>
+                        </div>
+
+                        <div class="text-center mt-3"><b>NB:</b> un code de vérification sera envoyé a votre Email</div>
+
+                        {{ form_end(form) }}
+
+                        {% for flash_message in app.flashes('error') %}
+                            <div class="alert alert-danger mt-3">{{ flash_message }}</div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block About %}{% endblock %}
+{% block header %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}
+{% block footer %}{% endblock %}

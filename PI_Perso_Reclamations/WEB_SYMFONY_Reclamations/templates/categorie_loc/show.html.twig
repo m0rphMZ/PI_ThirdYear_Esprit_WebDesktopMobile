@@ -1,0 +1,26 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}CategorieLoc{% endblock %}
+
+{% block cards %}
+    <h1>CategorieLoc</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>CodecLoc</th>
+                <td>{{ categorie_loc.codecLoc }}</td>
+            </tr>
+            <tr>
+                <th>LibellecLoc</th>
+                <td>{{ categorie_loc.libellecLoc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorie_loc_index') }}">back to list</a>
+
+    <a href="{{ path('app_categorie_loc_edit', {'codecLoc': categorie_loc.codecLoc}) }}">edit</a>
+
+    {{ include('categorie_loc/_delete_form.html.twig') }}
+{% endblock %}

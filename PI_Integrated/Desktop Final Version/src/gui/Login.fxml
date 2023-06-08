@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" onDragDetected="#mdp_ob" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="383.0">
+         <image>
+            <Image url="@Background.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="36.0" layoutY="59.0" prefHeight="275.0" prefWidth="285.0">
+         <children>
+            <ImageView fx:id="logo" fitHeight="229.0" fitWidth="259.0" layoutX="28.0" layoutY="23.0">
+               <image>
+                  <Image url="@unnamed.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Text fx:id="bien" fill="#bf4759" layoutX="454.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue Chez TouskiArt" textAlignment="CENTER" wrappingWidth="259.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="email" layoutX="463.0" layoutY="184.0" prefHeight="25.0" prefWidth="241.0" promptText="Email" />
+      <Button fx:id="cnbt" layoutX="494.0" layoutY="283.0" mnemonicParsing="false" onAction="#connect" prefHeight="20.0" prefWidth="180.0" style="-fx-background-color: 55B61; -fx-background-radius: 0;" stylesheets="@style.css" text="se connecter" textFill="#ed586e">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="cnbt1" layoutX="494.0" layoutY="330.0" mnemonicParsing="false" onAction="#inscrire" prefHeight="23.0" prefWidth="180.0" style="-fx-background-color: 55B61; -fx-background-radius: 0;" stylesheets="@style.css" text="s'inscrire" textFill="#ed586e">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Button>
+      <Text layoutX="492.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mot de passe oublié?" wrappingWidth="180.0">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="slogan" fill="WHITE" layoutX="69.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La vie est un événement           rendez-le mémorable!" wrappingWidth="285.0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <PasswordField fx:id="mdp" layoutX="463.0" layoutY="226.0" prefHeight="25.0" prefWidth="241.0" promptText="mot de passe" />
+      <Button fx:id="icibt" layoutX="614.0" layoutY="386.0" mnemonicParsing="false" onAction="#passwrd" style="-fx-background-color: gris;" text="cliquez ici" underline="true" />
+      <ImageView fitHeight="25.0" fitWidth="38.0" layoutX="424.0" layoutY="226.0">
+         <image>
+            <Image url="@password.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="38.0" layoutX="424.0" layoutY="182.0">
+         <image>
+            <Image url="@email.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

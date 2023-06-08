@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!{% endblock %}
+
+{% block hero %}
+
+<section class="h-100 gradient-custom">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center my-4">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header py-3">
+                        <h5 class="mb-0">Cart - {{ items | length }} items</h5>
+                    </div>
+                    {% for item in items %}
+
+                    <div class="card-body">
+                        <!-- Single item -->
+                        <div class="row">
+                            <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                <!-- Image -->
+                                <div class="bg-image hover-overlay hover-zoom ripple rounded"
+                                     data-mdb-ripple-color="light">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+                                         class="w-100" alt="Blue Jeans Jacket"/>
+                                    <a href="#!">
+                                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                                    </a>
+                                </div>
+                                <!-- Image -->
+                            </div>
+
+
+                            <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                <!-- Data -->
+                                <p><strong>{{ item.produit.codeproduit }}</strong></p>
+                                <p>Color: blue</p>
+                                <p>Size: M</p>
+
+
+                                <!-- Data -->
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                                <!-- Quantity -->
+                                <div class="d-flex mb-4" style="max-width: 300px">
+
+
+                                    <div class="form-outline">
+                                        <input id="form1" min="0" name="quantity" value="{{ item.quantity }}"
+                                               type="text" disabled class="form-control"/>
+                                        <label class="form-label" for="form1">Quantity</label>
+                                    </div>
+
+
+                                </div>
+                                <!-- Quantity -->
+
+                                <!-- Price -->
+                                <p class="text-start text-md-center">
+                                    <strong>$17.99</strong>
+                                </p>
+                                <!-- Price -->
+                            </div>
+                        </div>
+                        <hr class="my-4"/>
+
+                        <!-- Single item -->
+                        {% endfor %}
+
+
+                        <!-- Single item -->
+
+                        <!-- Single item -->
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

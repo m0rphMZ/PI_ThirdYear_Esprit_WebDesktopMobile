@@ -1,0 +1,41 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}CommandeItem index{% endblock %}
+
+
+
+    {% block cards %}
+        <a href="{{ path('app_commande_item_new', {'idC':app.request.get('idC')}) }}" class="btn btn-primary">ajout</a>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Quantité</th>
+                <th>Nom Produit</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for commande_item in commande_items %}
+                <td>{{ commande_item.quantity }}</td>
+                <td>{{ commande_item.produit.codeproduit }}</td>
+                <td>
+                    <form method="post"
+                          action="{{ path('app_commande_item_delete', {'id': commande_item.id, 'idC':app.request.get('idC') }) }}"
+                          onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commande_item.id) }}">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                    <a class="btn btn-success"
+                       href="{{ path('app_commande_item_edit', {'id': commande_item.id,'idC': app.request.get('idC')}) }}">edit</a>
+                       </form>
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+{% block topbar %}{% endblock %}
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}
+

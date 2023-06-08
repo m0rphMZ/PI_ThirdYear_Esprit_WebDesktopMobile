@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="496.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UpdateController">
+   <children>
+      <TextField fx:id="nom" layoutX="76.0" layoutY="73.0" prefHeight="34.0" prefWidth="217.0" promptText="nom" />
+      <TextField fx:id="prenom" layoutX="76.0" layoutY="125.0" prefHeight="34.0" prefWidth="217.0" promptText="prenom" />
+      <TextField fx:id="email" layoutX="76.0" layoutY="177.0" prefHeight="34.0" prefWidth="217.0" promptText="email" />
+      <TextField fx:id="Tel" layoutX="76.0" layoutY="232.0" prefHeight="34.0" prefWidth="217.0" promptText="Tel" />
+      <TextField fx:id="mdp" layoutX="76.0" layoutY="283.0" prefHeight="34.0" prefWidth="217.0" promptText="mot de passe" />
+      <ChoiceBox fx:id="role" layoutX="76.0" layoutY="342.0" prefHeight="34.0" prefWidth="217.0" style="-fx-background-color: #ee586e;" stylesheets="@style.css" />
+      <Button fx:id="modb" layoutX="406.0" layoutY="245.0" mnemonicParsing="false" onAction="#modifier" prefHeight="46.0" prefWidth="171.0" style="-fx-background-color: #ee586e; -fx-background-radius: 10;" stylesheets="@style.css" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="24.0" />
+         </font></Button>
+      <Button fx:id="annb" layoutX="406.0" layoutY="326.0" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="171.0" style="-fx-background-color: #ee586e; -fx-background-radius: 10;" stylesheets="@style.css" text="Annuler" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="24.0" />
+         </font></Button>
+      <Button fx:id="upbtn" layoutX="76.0" layoutY="402.0" mnemonicParsing="false" onAction="#uploadImgBtn" prefHeight="34.0" prefWidth="217.0" style="-fx-background-color: #ee586e;" stylesheets="@style.css" text="Upload" textFill="#fffefe">
+         <font>
+            <Font name="Verdana Bold" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="pdp" fitHeight="142.0" fitWidth="77.0" layoutX="459.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="backbt" fitHeight="46.0" fitWidth="51.0" layoutX="25.0" layoutY="14.0" onMouseClicked="#back">
+         <image>
+            <Image url="@GoBack.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

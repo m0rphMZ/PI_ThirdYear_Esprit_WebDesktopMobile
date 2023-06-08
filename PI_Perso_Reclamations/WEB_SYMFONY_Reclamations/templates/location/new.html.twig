@@ -1,0 +1,29 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Nouvelle CateLocalgorie{% endblock %}
+
+
+
+{% block cards %}  
+    <div class="hero">
+    <section id="reclamation" class="formRec">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2 style="font-family: 'Roboto', sans-serif; color:#6f42c1">Nouveau Local</h2>
+            <p>Veillez remplir le <span>formulaire</span> ci-dessous</p>
+        </div>
+
+
+
+    {{ include('location/_form.html.twig') }}
+   
+ <a href="{{ path('app_location_index') }}" style ="margin-left:70px;"class="btn btn-secondary mt-3"><i class="fas fa-chevron-left"></i> Back to list</a>
+   <br></br>
+{% endblock %}
+
+
+
+
+
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}

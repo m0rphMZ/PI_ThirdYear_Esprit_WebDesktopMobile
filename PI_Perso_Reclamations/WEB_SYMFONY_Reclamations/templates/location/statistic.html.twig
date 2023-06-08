@@ -1,0 +1,46 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Statistiques{% endblock %}
+
+
+
+{% block cards %}
+
+    <h1>Statistiques</h1>
+    <canvas id="categories" width="400" height="100"></canvas>
+
+  
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+<script>
+ let data = {{ data|json_encode|raw }};
+ let categories = document.querySelector("#categories");
+ let colors = [];
+
+    let categGraph = new Chart(categories, {
+        type: "pie",
+        data: {
+            labels: Object.keys(data),
+            datasets: [{
+                label: "Répartition des catégories",
+                data: Object.values(data),
+                backgroundColor: {{categColor|raw}}
+            }]
+        }
+    });
+ 
+
+    </script>
+{% endblock %}
+
+
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}
+
+
+
+  

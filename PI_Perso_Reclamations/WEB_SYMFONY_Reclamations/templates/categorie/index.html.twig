@@ -1,0 +1,42 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Categorie index{% endblock %}
+
+
+{% block cards %}{% endblock %}
+{% block charts %}{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block Project %}
+
+    <h1>Categorie index</h1>
+
+    <table class="table " style="width:90%; margin:auto;">
+        <thead>
+            <tr>
+                <th>Idcategorie</th>
+                <th>Libcategorie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.idcategorie }}</td>
+                <td>{{ categorie.libcategorie }}</td>
+                <td>
+                    <a href="{{ path('app_categorie_show', {'idcategorie': categorie.idcategorie}) }}">show</a>
+                    <a href="{{ path('app_categorie_edit', {'idcategorie': categorie.idcategorie}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorie_new') }}">Create new</a>
+{% endblock %}

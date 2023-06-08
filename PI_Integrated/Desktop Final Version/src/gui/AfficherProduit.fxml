@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="636.0" prefWidth="900.0" style="-fx-background-color: #426ab7;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherProduitController">
+   <children>
+      <ScrollPane hmax="11.0" hmin="5.0" hvalue="1.0" layoutX="73.0" layoutY="109.0" prefHeight="463.0" prefWidth="755.0">
+         <content>
+            <GridPane fx:id="gridProduit" prefHeight="456.0" prefWidth="750.0" style="-fx-background-color: #7ebcea;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="383.1999877929687" minHeight="-Infinity" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <TextField id="glass" fx:id="chercherProduitF" layoutX="541.0" layoutY="65.0" onKeyPressed="#rechercherProd" promptText="rechercher" stylesheets="@newCascadeStyleSheet.css" />
+      <Button id="blue" layoutX="758.0" layoutY="57.0" mnemonicParsing="false" onAction="#trierProd" stylesheets="@newCascadeStyleSheet.css" text="trier" />
+      <Button id="blue" fx:id="Retour" layoutX="73.0" layoutY="57.0" mnemonicParsing="false" onAction="#retoue" stylesheets="@newCascadeStyleSheet.css" text="Retour" />
+   </children>
+</AnchorPane>

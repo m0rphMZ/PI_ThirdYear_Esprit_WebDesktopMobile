@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="950.0" styleClass="parent" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminCommandeController">
+   <children>
+      <AnchorPane layoutX="82.0" layoutY="104.0" prefHeight="534.0" prefWidth="770.0" styleClass="background2" stylesheets="@StyleSheet.css">
+         <children>
+            <AnchorPane fx:id="affichfinale" layoutX="9.0" layoutY="8.0" prefHeight="520.0" prefWidth="751.0" styleClass="parent" stylesheets="@StyleSheet.css">
+               <children>
+                  <ScrollPane layoutX="7.0" layoutY="5.0">
+                     <content>
+                        <FlowPane fx:id="flowp" prefHeight="511.0" prefWidth="738.0" styleClass="background2" stylesheets="@StyleSheet.css" />
+                     </content>
+                  </ScrollPane>
+               </children></AnchorPane>
+         </children></AnchorPane>
+      <ChoiceBox fx:id="trichoix" layoutX="698.0" layoutY="58.0" prefHeight="29.0" prefWidth="154.0" styleClass="background2" stylesheets="@StyleSheet.css" />
+      <ImageView fitHeight="88.0" fitWidth="126.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@LogoTA.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="backback" fitHeight="57.0" fitWidth="75.0" layoutX="862.0" layoutY="24.0" onMouseClicked="#backback" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@GoBack.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

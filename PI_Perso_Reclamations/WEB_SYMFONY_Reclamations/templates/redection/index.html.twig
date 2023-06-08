@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Redection index{% endblock %}
+
+{% block body %}
+    <h1>Redection index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Coder</th>
+                <th>Valr</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for redection in redections %}
+            <tr>
+                <td>{{ redection.coder }}</td>
+                <td>{{ redection.valr }}</td>
+                <td>
+                    <a href="{{ path('app_redection_show', {'coder': redection.coder}) }}">show</a>
+                    <a href="{{ path('app_redection_edit', {'coder': redection.coder}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_redection_new') }}">Create new</a>
+{% endblock %}

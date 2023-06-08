@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProduitController">
+   <children>
+      <ImageView fx:id="imageview" fitHeight="116.0" fitWidth="366.0" layoutX="29.0" layoutY="14.0" onMouseClicked="#go_cod" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="nomProduirLabel" layoutX="32.0" layoutY="128.0" prefHeight="24.0" prefWidth="119.0" text="Label">
+         <font>
+            <Font name="Arial Black" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="participerEventButton" layoutX="29.0" layoutY="301.0" mnemonicParsing="false" onAction="#ajoutPanier" onMouseClicked="#participerEvent" prefHeight="26.0" prefWidth="108.0" text="Ajouter au panier" />
+      <Label fx:id="QunatiteLabel" layoutX="29.0" layoutY="178.0" prefHeight="15.0" prefWidth="43.0" text="Label">
+         <font>
+            <Font name="Lucida Bright Demibold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="descriptionLabel" layoutX="33.0" layoutY="152.0" prefHeight="26.0" prefWidth="62.0" text="Label">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="prixlabel" layoutX="38.0" layoutY="193.0" prefHeight="24.0" prefWidth="54.0" text="Label">
+         <font>
+            <Font name="Lucida Bright" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="144.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#go_avis" prefHeight="26.0" prefWidth="108.0" text="ajouterAvis" />
+      <TextField fx:id="idProdF" layoutX="284.0" layoutY="302.0" prefHeight="26.0" prefWidth="62.0" />
+   </children>
+</AnchorPane>

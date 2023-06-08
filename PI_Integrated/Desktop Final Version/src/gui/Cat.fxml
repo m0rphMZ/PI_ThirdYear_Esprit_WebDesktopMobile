@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CatController">
+   <children>
+      <TextField fx:id="NomCatFid" layoutX="81.0" layoutY="56.0" promptText="Nom Categorie" />
+      <Button fx:id="ajouter_cat_unite" layoutX="266.0" layoutY="282.0" mnemonicParsing="false" onAction="#AjouterCat" prefHeight="26.0" prefWidth="71.0" text="Ajouter" />
+      <Button fx:id="suprimerr_cat_unite" layoutX="362.0" layoutY="282.0" mnemonicParsing="false" onAction="#SupprimerCat" text="Supprimer" />
+      <Button fx:id="modifier_cat_unite" layoutX="462.0" layoutY="282.0" mnemonicParsing="false" onAction="#ModiferCat" prefHeight="26.0" prefWidth="83.0" text="Modifier" />
+      <TableView fx:id="tableCat" layoutX="81.0" layoutY="96.0" onMouseClicked="#choisirCat" prefHeight="172.0" prefWidth="150.0">
+        <columns>
+          <TableColumn fx:id="nomCatTv" prefWidth="142.39996337890625" text="C1" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

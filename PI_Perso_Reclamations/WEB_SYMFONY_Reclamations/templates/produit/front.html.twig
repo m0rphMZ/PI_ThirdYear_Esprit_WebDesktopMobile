@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Produit{% endblock %}
+
+
+
+    {% block hero %}{% endblock %}
+    {% block WhyUs %} {% endblock %}
+    {% block stats %} {% endblock %}
+    {% block testimonial %} {% endblock %}
+    {% block events %} {% endblock %}
+    {% block booking %} {% endblock %}
+    {% block About %}{% endblock %}
+    {% block contact %}{% endblock %}
+    {% block gallery %}{% endblock %}
+    {% block chef %}{% endblock %}
+    {% block menu %}
+    <br> <!-- ======= Menu Section ======= -->
+    <br>
+    <br>
+    <br>
+    <section id="menu" class="menu">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Liste Produit</h2>
+          <p>bonne qualité<span>à meilleur prix</span></p>
+        </div>
+
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+
+          
+        </ul>
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+
+          <div class="tab-pane fade active show" id="menu-starters">
+
+            <div class="tab-header text-center">
+              <p>Produit</p>
+              <h3>Starters</h3>
+            </div>
+
+            <div class="row gy-5">
+{% for produit in produits %}
+              <div class="col-lg-4 menu-item">
+                <a href="{{ asset('../images/' ~ produit.image ) }}" class="glightbox"><img src="../images/{{produit.image}}" class="menu-img img-fluid " alt=""></a>
+                <h4>{{ produit.codeproduit }}</h4>
+                <p class="ingredients">
+                  {{ produit.des }}
+                </p>
+                <p class="price">
+                 {{ produit.prixunitaire }} TND
+                </p>
+              </div><!-- Menu Item -->
+
+     
+ {% endfor %}
+
+    <div class="tab-header text-center">
+             
+         <a href="{{ path('app_produit_indexALL') }}">afficher plus</a>
+            </div>
+            </div>
+            
+          </div><!-- End Breakfast Menu Content -->
+
+          </div><!-- End Dinner Menu Content -->
+
+        </div>
+
+      </div>
+    </section><!-- End Menu Section -->{% endblock %}
+
+
+                            
+

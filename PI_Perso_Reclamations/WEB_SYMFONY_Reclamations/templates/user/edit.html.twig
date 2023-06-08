@@ -1,0 +1,40 @@
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block hero %}
+<br>
+ {% if app.session.get('user').role =='Admin' %}
+<a href="{{ path('app_user_index') }}" class="btn btn-primary" style="background-color: #ee568e; border: none; color: #fff;">retour</a>
+{% else %}
+<a href="{{ path('app_home') }}" class="btn btn-primary" style="background-color: #ee568e; border: none; color: #fff;">retour</a>
+{% endif  %}
+<center>
+    <h1>Modification Profile</h1>
+   
+
+    {{ include('user/_form.html.twig', {'button_label': 'Modifier'}) }}
+<br>
+    
+
+    {{ include('user/_delete_form.html.twig') }}
+    </center>
+    <br>
+    
+{% endblock %}
+
+{% block About %}{% endblock %}
+{% block header %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,36 @@
+{% block title %}Comments List{% endblock %}
+
+{% block ha %}
+<br><br><br>
+<center><a href="{{ path('app_commentaire_new', {'eventId': eventId}) }}" class="btn btn-danger">Ajouter un commentaire</a></center><br>
+{% for commentaire in commentaires %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-body" style="background-color: #ffe5ec;">
+                <p class="card-text"><strong>{{ commentaire.user.nom }}</strong></p><br>
+                <p class="card-text">{{ commentaire.commentaire.commentaire }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    
+                        {% if app.session.get('user').idUser == commentaire.user.idUser %}
+                                <a href="{{ path('app_commentaire_edit', {'idCom': commentaire.commentaire.idCom}) }}" class="btn btn-sm btn-outline-secondary">Modifier</a>
+                                {{ include('commentaire/_delete_form.html.twig') }}
+                            {% endif %}
+
+                        
+                        
+                    </div>
+                    <small class="text-muted">{{ commentaire.commentaire.likecount }} Likes</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+    <p>Vide</p>
+{% endfor %}
+
+
+   
+{% endblock %}

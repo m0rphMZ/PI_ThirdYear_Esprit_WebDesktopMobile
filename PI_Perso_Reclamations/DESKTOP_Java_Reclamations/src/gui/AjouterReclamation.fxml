@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjouterReclamationController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1280.0" pickOnBounds="true">
+         <image>
+            <Image url="@BackgroundRec.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: WHITE;">
+         <children>
+            <Label fx:id="labelTypeReclamation" layoutX="80.0" layoutY="27.0" prefHeight="30.0" prefWidth="1039.0" text="Label" textFill="#ee586e">
+               <font>
+                  <Font name="Verdana Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelTitreRec" layoutX="24.0" layoutY="85.0" prefHeight="30.0" prefWidth="265.0" text="En quoi pouvons-nous vous aider?" textFill="#a05385">
+               <font>
+                  <Font name="Verdana Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TitreRec" layoutX="24.0" layoutY="115.0" prefHeight="25.0" prefWidth="1124.0" promptText="Sujet" />
+            <TextArea fx:id="DescriptionRec" layoutX="24.0" layoutY="196.0" prefHeight="403.0" prefWidth="1124.0" promptText="J'ai un problème quand je..." wrapText="true" />
+            <Label fx:id="labelTitreDescription" layoutX="24.0" layoutY="166.0" prefHeight="30.0" prefWidth="640.0" text="Veuillez fournir des détails sur le problème que vous rencontrez :" textFill="#a05385">
+               <font>
+                  <Font name="Verdana Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="BtnRecSend" alignment="CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="619.0" mnemonicParsing="false" onAction="#AjouterRec" prefHeight="38.0" prefWidth="640.0" stylesheets="@styleMorph.css" text="Ajouter Reclamation" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Verdana Bold" size="14.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="GoBackBtn" fitHeight="45.0" fitWidth="45.0" layoutX="24.0" layoutY="22.0" onMouseClicked="#GoBk" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: HAND;">
+               <image>
+                  <Image url="@GoBack.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

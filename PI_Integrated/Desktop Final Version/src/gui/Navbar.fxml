@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="76.0" prefWidth="1057.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.NavbarController">
+   <children>
+      <ImageView fx:id="profileIcon" fitHeight="52.0" fitWidth="53.0" layoutX="971.0" layoutY="12.0" onMouseClicked="#openProfile">
+         <image>
+            <Image url="@../assets/images/avatar_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="30.0" layoutX="31.0" layoutY="27.0">
+         <image>
+            <Image url="@../assets/images/three-horizontal-lines-icon.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="welcomeText" fill="#787a80" layoutX="79.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome, name!">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="panierIcon" fitHeight="52.0" fitWidth="53.0" layoutX="866.0" layoutY="12.0" onMouseClicked="#openPanier">
+         <image>
+            <Image url="@../assets/images/Panier.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

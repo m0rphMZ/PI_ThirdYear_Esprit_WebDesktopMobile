@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Touskieart Support{% endblock %}
+
+{% block hero %}
+  {% set reclamation = reclamations|first %}
+    <div class="hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Touskieart - Assitance </h1>
+            {% if reclamations is empty %}
+            <h2 data-aos="fade-up" >En quoi avez-vous besoin d'aide ?</h2>
+            {% else %}
+            <h2 data-aos="fade-up" >En quoi avez-vous besoin d'aide, {{reclamation.User.nom}} {#{{ app.user.username }}#}?</h2>
+            {% endif %}
+
+            <form class="form-inline" data-aos="fade-up" method="get" action="{{ path('app_reclamation_search') }}">
+                <div class="input-group">
+                    <input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control" placeholder="Recherche...">
+                    <input type="hidden" name="search" value="1">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search fa-sm"></i></button>
+                    </span>
+                </div>
+            </form>
+
+
+
+
+            </div>
+
+         
+        
+ 
+
+    <div class="container mt-4" data-aos="fade-up">
+        <div class="row">
+            <div class="col-md-12">
+                {% if reclamations is empty %}
+                    <div class="card">
+                    <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <h5>Vos réclamations</h5>
+                                <div class="ml-auto">
+                                    <h5>Filtrer les réclamations</h5>
+                                    {{ form_start(statusFilterForm) }}
+                                    <div class="form-group">
+                                        {{ form_widget(statusFilterForm.status, {'attr': {'class': 'form-control', 'id': 'status-filter'}}) }}
+                                    </div>
+                                    <div class="text-right">
+                                        <button type="submit" class="btn-book-a-table d-inline-block">Filtrer</button>
+                                    </div>
+                                    {{ form_end(statusFilterForm) }}
+                                </div>
+                            </div>
+                            </div>
+
+                    <p>Vous n'avez aucune réclamation pour le moment.</p>
+                    <div class="text-right mt-3">
+                                <a href="{{ path('new_reclamation') }}" class="btn-book-a-table">Ajouter une réclamation</a>
+                            </div>
+                {% else %}
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <h5>Vos réclamations</h5>
+                                <div class="ml-auto">
+                                    <h5>Filtrer les réclamations</h5>
+                                    {{ form_start(statusFilterForm) }}
+                                    <div class="form-group">
+                                        {{ form_widget(statusFilterForm.status, {'attr': {'class': 'form-control', 'id': 'status-filter'}}) }}
+                                    </div>
+                                    <div class="text-right">
+                                        <button type="submit" class="btn-book-a-table d-inline-block">Filtrer</button>
+                                    </div>
+                                    {{ form_end(statusFilterForm) }}
+                                </div>
+                            </div>
+
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Titre</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Créé le</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for reclamation in reclamations %}
+                                        <tr class="reclamation-row" data-href="{{ path('app_reclamation', { 'id': reclamation.recId }) }}">
+                                            <td>{{ reclamation.titreRec }}</td>
+                                            <td>{{ reclamation.status }}</td>
+                                            <td>{{ reclamation.dateCreation|date('m/d/Y') }}</td>
+                                            <td class="text-right">
+                                                <a href="{{ path('show_reclamationById', { 'id': reclamation.recId }) }}" class="btn-more-btn">Consulter la Réclamation</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+                            <div class="text-right mt-3">
+                                <a href="{{ path('new_reclamation') }}" class="btn-book-a-table">Ajouter une réclamation</a>
+                                {% if reclamations|length > 0 %}
+                                        <div class="d-flex justify-content-center my-4">
+                                            {{ knp_pagination_render(reclamations, 'pagination.html.twig') }}
+                                        </div>
+                                    {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block About %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}
+
+
+{% block css %}
+    {{ parent() }}
+    <style>
+        .btn-primary {
+    background-color: #EE568E;
+    border-color: #EE568E;
+}
+.btn-primary:hover {
+    background-color: #e54d7d;
+    border-color: #e54d7d;
+}
+
+    </style>
+{% endblock %}
+
+

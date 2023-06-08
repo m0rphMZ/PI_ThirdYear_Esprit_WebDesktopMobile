@@ -1,8 +1,0 @@
-
-touskieart.reclamations@gmail.com
-
-Touskieart1111!
-
-hvjwuepzgojbsibz
-
-php bin/console messenger:consume -vv async

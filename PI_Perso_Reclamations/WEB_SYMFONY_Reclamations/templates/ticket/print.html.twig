@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ticket</title>
+    <style>
+        /* Add your own custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #f6a6c1;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .content {
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+            border-radius: 5px;
+        }
+        .content h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: normal;
+            color: #f6a6c1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .content p {
+            margin: 0 0 10px;
+            line-height: 1.5;
+        }
+        .footer {
+            background-color: #f6a6c1;
+            padding: 10px;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .text-art {
+            font-family: monospace;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Ticket #{{ ticket.ticketId }}</h1>
+    </div>
+    <div class="content">
+        <h2>{{ ticket.event.title }}</h2>
+        <p><strong>Start date:</strong> {{ ticket.event.startdate|date('d-m-Y') }}</p>
+        <p><strong>End date:</strong> {{ ticket.event.enddate|date('d-m-Y') }}</p>
+        <p>{{ ticket.event.description }}</p>
+        <p><strong>Price:</strong> {{ ticket.price }} dt.</p>
+    </div>
+    <div class="footer">
+        <p>Printed At: {{ "now"|date("Y-m-d H:i:s") }}</p>
+    </div>
+
+    <div class="text-art">
+        <pre>
+ /\     /\
+{  `---'  }
+{  O   O  }
+~~>  V  <~~
+ \  \|/  /
+  `-----'____
+  /     \    \_
+ {       }\  )_\_   _
+ |  \_/  |/ /  \_\_/ )
+  \__/  /(_/     \__/
+    (__/
+        </pre>
+    </div>
+
+</body>
+</html>

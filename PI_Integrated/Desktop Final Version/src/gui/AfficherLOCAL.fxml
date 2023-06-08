@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="667.0" prefWidth="990.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherLocalController">
+   <children>
+      <Pane layoutX="-15.0" layoutY="-5.0" prefHeight="94.0" prefWidth="990.0" style="-fx-background-color: #FA2C56;">
+         <children>
+            <Label fx:id="lab" contentDisplay="RIGHT" layoutX="210.0" layoutY="31.0" prefHeight="39.0" prefWidth="399.0" text="LIST DES LOCATIONS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Frank Ruehl CLM Bold" size="35.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="84.0" fitWidth="102.0" layoutX="23.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Pidev_Java/src/gui/logo.png" />
+               </image>
+            </ImageView>
+            <Line endX="-23.199981689453125" endY="-34.600006103515625" layoutX="216.0" layoutY="69.0" startX="-23.199981689453125" stroke="WHITE" />
+            <ImageView fitHeight="84.0" fitWidth="102.0" layoutX="23.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ScrollPane layoutX="37.0" layoutY="185.0" prefHeight="482.0" prefWidth="886.0">
+         <content>
+            <TableView fx:id="locTv" prefHeight="483.0" prefWidth="886.0" stylesheets="@interfaceu.css">
+               <columns>
+                  <TableColumn fx:id="numTv" prefWidth="63.19998401403427" text="ID" />
+                  <TableColumn fx:id="descriptTv" prefWidth="101.59998321533203" text="DESCRIPTION" />
+                  <TableColumn fx:id="lieuTv" prefWidth="88.00001525878906" text="LIEU" />
+                  <TableColumn fx:id="surfaceTv" prefWidth="73.60011291503906" text="Surface" />
+                  <TableColumn fx:id="nbTv" prefWidth="92.79998779296875" text="NBPERSONNE" />
+                  <TableColumn fx:id="codeTv" minWidth="0.0" prefWidth="108.79995727539062" text="CODECATEGORIE" />
+                  <TableColumn fx:id="imgTv" prefWidth="110.4000244140625" text="image" />
+                  <TableColumn fx:id="action" text="SUPPRIMER" />
+                  <TableColumn fx:id="action2" prefWidth="107.2000732421875" text="MODIFIER" />
+               </columns>
+               <styleClass>
+                  <String fx:value="cell" />
+                  <String fx:value="column-header-background" />
+                  <String fx:value="filler" />
+               </styleClass>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <ImageView fitHeight="36.0" fitWidth="90.0" layoutX="33.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@téléchargement%20(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="22.0" layoutY="111.0" onMouseClicked="#retour" prefHeight="29.0" prefWidth="59.0" />
+      <ImageView fx:id="excel" fitHeight="59.0" fitWidth="59.0" layoutX="777.0" layoutY="96.0" onMouseClicked="#handleImageViewClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@téléchargement.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="statistique" fitHeight="59.0" fitWidth="59.0" layoutX="678.0" layoutY="96.0" onMouseClicked="#statistique" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@กราฟ-png-2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

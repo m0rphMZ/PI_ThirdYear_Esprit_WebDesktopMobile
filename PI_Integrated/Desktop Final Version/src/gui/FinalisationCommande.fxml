@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="900.0" styleClass="parent" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FinalisationCommandeController">
+   <children>
+      <Text fill="#f7f7f7" layoutX="151.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre commande a été effectuée avec succès !" wrappingWidth="605.336669921875">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Text>
+      <Text fill="#f7f7f7" layoutX="115.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nous avons envoyé un SMS à votre téléphone pour confirmer votre commande." wrappingWidth="715.8832092285156">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="num" layoutX="415.0" layoutY="111.0" prefHeight="27.0" prefWidth="92.0" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="homepage" layoutX="374.0" layoutY="231.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="157.0" text="Home">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

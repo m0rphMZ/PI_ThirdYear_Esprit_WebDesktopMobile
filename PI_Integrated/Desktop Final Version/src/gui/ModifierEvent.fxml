@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" styleClass="Box" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierEventController">
+   <children>
+      <TextField fx:id="titleTf" layoutX="29.0" layoutY="145.0" prefHeight="25.0" prefWidth="338.0" promptText="Titre" />
+      <TextArea fx:id="descTa" layoutX="31.0" layoutY="325.0" prefHeight="135.0" prefWidth="338.0" promptText="description" />
+      <DatePicker fx:id="startDateDp" layoutX="30.0" layoutY="510.0" prefHeight="25.0" prefWidth="338.0" promptText="Date de début" />
+      <DatePicker fx:id="endDateDp" layoutX="30.0" layoutY="573.0" prefHeight="25.0" prefWidth="338.0" promptText="Date de fin" />
+      <TextField fx:id="ticketCountTf" layoutX="501.0" layoutY="145.0" prefHeight="25.0" prefWidth="338.0" promptText="nbre tickets" />
+      <Button fx:id="uploadImgBtn" layoutX="503.0" layoutY="438.0" mnemonicParsing="false" onAction="#onUploadButtonClick" prefHeight="30.0" prefWidth="150.0" styleClass="GeneralButton" text="Importer une image">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="13.0" />
+         </font></Button>
+      <Button fx:id="cancelBtn" layoutX="916.0" layoutY="644.0" mnemonicParsing="false" onAction="#cancel" prefHeight="30.0" prefWidth="70.0" styleClass="GeneralButton" text="Annuler">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="13.0" />
+         </font></Button>
+      <ImageView fx:id="imagePreview" fitHeight="190.0" fitWidth="338.0" layoutX="501.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true" styleClass="Box" />
+      <Button fx:id="updateBtn" layoutX="794.0" layoutY="644.0" mnemonicParsing="false" onAction="#updateEvent" prefHeight="30.0" prefWidth="102.0" styleClass="GeneralButton" text="Mettre à jour">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="13.0" />
+         </font></Button>
+      <ChoiceBox fx:id="locationCBox" layoutX="501.0" layoutY="512.0" prefHeight="25.0" prefWidth="338.0" />
+      <Text layoutX="27.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier l'événement">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="27.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remplissez le formulaire suivant afin de modifier l'événement.">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="15.0" />
+         </font>
+      </Text>
+      <Label layoutX="29.0" layoutY="116.0" text="Titre de l'événement">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="204.0" text="Type">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="289.0" text="Description">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="483.0" text="Date de début">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="546.0" text="Date de fin">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="501.0" layoutY="116.0" text="Nombre de tickets">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="501.0" layoutY="198.0" text="Affiche">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="502.0" layoutY="483.0" text="Emplacement">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ticketPriceTf" layoutX="851.0" layoutY="143.0" prefHeight="27.0" prefWidth="134.0" promptText="Prix" />
+      <Label layoutX="851.0" layoutY="116.0" text="Prix">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="typeTf" layoutX="31.0" layoutY="236.0" prefHeight="25.0" prefWidth="338.0" />
+   </children>
+</AnchorPane>

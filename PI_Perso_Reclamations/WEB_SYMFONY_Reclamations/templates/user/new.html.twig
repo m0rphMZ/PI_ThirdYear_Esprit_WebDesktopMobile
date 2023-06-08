@@ -1,0 +1,31 @@
+{% extends 'Adminbase.html.twig' %}
+
+{% block title %}Ajout d'un utilisateur{% endblock %}
+
+{% block cards %}
+    <div class="container" >
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+               <center> <h1 style="color: #210777;">Ajouter un utilisateur</h1></center>
+               {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                    {{ form_row(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}<br>
+                    {{ form_row(form.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'}}) }}<br>
+                    {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}<br>
+                    {{ form_row(form.mdp, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}}) }}<br>
+                    {{ form_row(form.tel, {'attr': {'class': 'form-control', 'placeholder': 'Téléphone'}}) }}<br>
+                    {{ form_row(form.image, {'attr': {'class': 'form-control-file'}}) }}<br>
+                    {{ form_row(form.role, {'attr': {'class': 'form-control'}}) }}<br>
+                    <center><button class="btn btn-primary" style="background-color: #ee568e; border: none; color: #fff;">{{ button_label|default('Ajouter') }}</button></center><br>
+                {{ form_end(form) }}
+                <center><a href="{{ path('app_user_index') }}" class="btn btn-primary" style="background-color: #ee568e; border: none; color: #fff;">Retour</a></center>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block topbar %}{% endblock %}
+
+
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}
+{% block footer %}{% endblock %}

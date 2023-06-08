@@ -1,0 +1,52 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Ticket index{% endblock %}
+
+{% block cards %}
+    <h1>Ticket index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Propriétaire</th>
+                <th>Événement</th>
+                <th>Prix</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Qr Code</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.user.nom ~" "~ ticket.user.prenom }}</td>
+                <td>{{ ticket.event.title }}</td>
+                <td>{{ ticket.price }}</td>
+                <td>{{ ticket.event.startdate|date('d-m-Y') }}</td>
+                <td>{{ ticket.event.enddate|date('d-m-Y') }}</td>
+                <td><img src="{{ asset('img/qrcode/' ~ ticket.qrCodeImg) }}" class="img-fluid" alt="" style="width: 100px; height: auto;"></td>
+                <td>
+                    {# <a href="{{ path('app_ticket_show', {'ticketId': ticket.ticketId}) }}">show</a> #}
+                    <a href="{{ path('app_ticket_edit', {'ticketId': ticket.ticketId}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">aucune entrée n'a été trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if tickets|length > 0 %}
+        <div class="d-flex justify-content-center my-4">
+            {{ knp_pagination_render(tickets) }}
+        </div>
+    {% endif %}
+
+    <a href="{{ path('app_ticket_new_admin') }}">Create new</a>
+{% endblock %}
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}
+{% block footer %}{% endblock %}

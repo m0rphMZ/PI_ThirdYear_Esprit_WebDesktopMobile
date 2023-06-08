@@ -1,0 +1,40 @@
+
+
+
+<style>
+  label {
+      color: #0077be;
+  }
+</style>
+
+
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+
+{{ form_row(form.desciptLoc, {'attr': {'class': 'form-control', 'placeholder': 'description' }  }   )   }}
+    {{ form_row(form.lieuLoc, {'attr': {'class': 'form-control', 'placeholder': 'lieu'}}) }}
+    {{ form_row(form.surfaceLoc, {'attr': {'class': 'form-control', 'placeholder': 'surface'}}) }}
+    {{ form_row(form.nbPersLoc, {'attr': {'class': 'form-control', 'placeholder': 'nbre personnes'}}) }}
+    {{ form_row(form.prixLoc, {'attr': {'class': 'form-control', 'placeholder': 'prix Local'}}) }}
+    {{ form_row(form.equipements, {'attr': {'class': 'form-control', 'placeholder': 'Equipement'}}) }}
+    {{ form_row(form.disponibilite, {'attr': {'class': 'form-control', 'placeholder': 'disponibilite'}}) }}
+    {{ form_row(form.dateAloc, {'attr': {'class': 'form-control', 'placeholder': 'dateAloc'}}) }}
+    {{ form_row(form.imageFile, {'attr': {'class': 'form-control-file'}}) }}
+    
+    {{ form_label(form.codeCatg) }}
+                  {{ form_widget(form.codeCatg, {'attr': {'class': 'form-control'}}) }}
+
+
+
+ {{ form_label(form.user) }}
+                  {{ form_widget(form.user, {'attr': {'class': 'form-control','placeholder': 'user'}}) }}
+
+
+
+<br></br>
+    <button class="btn btn-primary" style="background-color: #6f42c1; border: none;padding: 10px 44px; border-radius: 6px;margin-left:70px;">{{ button_label|default('Save') }}</button>
+
+
+{{ form_end(form) }}
+

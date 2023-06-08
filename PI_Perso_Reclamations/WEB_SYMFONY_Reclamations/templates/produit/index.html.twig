@@ -1,0 +1,75 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}    Produit{% endblock %}
+
+{% block cards %}{% endblock %}
+{% block charts %}{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block Project %}
+
+<style>
+
+btn{
+
+    background-color : #FFFFFF;
+}
+
+</style>
+    <h1>Produit index</h1>
+       <a href="{{ path('pdf') }}" >pdf</a>
+<div class ="container">
+
+
+
+</div>
+
+
+    <table class="table" style="width:90%; margin:auto;" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codeproduit</th>
+                <th>Des</th>
+                <th>Qtestock</th>
+                <th>Qtemin</th>
+                <th>Prixunitaire</th>
+                <th>Idunite</th>
+                <th>Image</th>
+                <th>Idcat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.codeproduit }}</td>
+                <td>{{ produit.des }}</td>
+                <td>{{ produit.qtestock }}</td>
+                <td>{{ produit.qtemin }}</td>
+                <td>{{ produit.prixunitaire }}</td>
+                <td>{{ produit.idunite }}</td>
+                <td>  <div> <img  class ="montassar" src="../images/{{produit.image}}"></div></td>
+                <td>{{ produit.idcat }}</td>
+                <td>
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{# <button style="background-color:#ee568e;"> #}
+    <a href="{{ path('app_produit_new') }}" >Create new</a>
+    {# </button> #}
+{% endblock %}
+
+{% block javaScript %}
+<script src="{{asset('js/filtres.js')}} "></script>
+{% endblock %}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="831.0" style="-fx-background-color: #fffff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ModifierlocalController">
+   <stylesheets>
+      <URL value="@../../../Pidev_Java/src/gui/gererlocaux.css" />
+   </stylesheets>
+   <children>
+      <TextField fx:id="numF" layoutX="23.0" layoutY="102.0" prefHeight="36.0" prefWidth="150.0" promptText="Numlocal" />
+      <TextField fx:id="descripF" layoutX="23.0" layoutY="174.0" prefHeight="36.0" prefWidth="150.0" promptText="Description" />
+      <TextField fx:id="lieuF" layoutX="23.0" layoutY="248.0" prefHeight="36.0" prefWidth="150.0" promptText="Lieu" />
+      <TextField fx:id="surfaceF" layoutX="23.0" layoutY="321.0" prefHeight="36.0" prefWidth="150.0" promptText="Surface" />
+      <TextField fx:id="nbPersF" layoutX="23.0" layoutY="394.0" prefHeight="36.0" prefWidth="150.0" promptText="NbrePersonnes" />
+      <ComboBox fx:id="cmbxx" layoutX="378.0" layoutY="274.0" prefHeight="26.0" prefWidth="166.0" promptText="        parcourir" />
+      <Label layoutX="378.0" layoutY="244.0" prefHeight="26.0" prefWidth="126.0" text="CodeCategorie" textFill="#fa2c56">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="556.0" layoutY="274.0" mnemonicParsing="false" onAction="#addcombox" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: #FA2C56;" text="load" textFill="WHITE" />
+      <Button layoutX="595.0" layoutY="430.0" mnemonicParsing="false" onAction="#enregister" prefHeight="46.0" prefWidth="126.0" style="-fx-background-color: #FA2C56;" text="Enregistrer" textFill="#fafaff">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="num" layoutX="216.0" layoutY="111.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Label fx:id="descript" layoutX="209.0" layoutY="183.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Label fx:id="lieu" layoutX="209.0" layoutY="257.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Label fx:id="sur" layoutX="209.0" layoutY="330.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Label fx:id="nb" layoutX="216.0" layoutY="403.0" prefHeight="18.0" prefWidth="150.0" textFill="#e72121" />
+      <Button fx:id="b" layoutX="377.0" layoutY="64.0" mnemonicParsing="false" onAction="#parcourir" prefHeight="26.0" prefWidth="150.0" text="parcourir image" />
+      <Pane layoutX="377.0" layoutY="102.0" prefHeight="120.0" prefWidth="150.0" style="-fx-background-color: #73228c;">
+         <children>
+            <ImageView fx:id="imageView" fitHeight="102.0" fitWidth="126.0" layoutX="12.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="333.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Pidev_Java/src/gui/add-icon-png-2462.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="46.0" prefWidth="831.0" style="-fx-background-color: #FA2C56;">
+         <children>
+            <Label layoutX="45.0" layoutY="14.0" prefHeight="18.0" prefWidth="185.0" text="# modifier le local desiré" textFill="#73228c">
+               <font>
+                  <Font name="Berlin Sans FB" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="36.0" fitWidth="91.0" layoutX="757.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Pidev_Java/src/gui/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

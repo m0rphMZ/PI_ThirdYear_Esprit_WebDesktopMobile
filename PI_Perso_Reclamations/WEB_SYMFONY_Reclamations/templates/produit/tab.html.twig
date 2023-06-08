@@ -1,0 +1,34 @@
+<table  >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codeproduit</th>
+                <th>Des</th>
+                <th>Qtestock</th>
+                <th>Qtemin</th>
+                <th>Prixunitaire</th>
+                <th>Idunite</th>
+                <th>Image</th>
+                <th>Idcat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.codeproduit }}</td>
+                <td>{{ produit.des }}</td>
+                <td>{{ produit.qtestock }}</td>
+                <td>{{ produit.qtemin }}</td>
+                <td>{{ produit.prixunitaire }}</td>
+                <td>{{ produit.idunite }}</td>
+                <td>  <div> <img  class ="montassar" src="../images/{{produit.image}}"></div></td>
+                <td>{{ produit.idcat }}</td>
+                
+            </tr>
+       
+           
+        {% endfor %}
+        </tbody>
+    </table>

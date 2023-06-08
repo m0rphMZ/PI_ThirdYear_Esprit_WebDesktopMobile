@@ -1,0 +1,57 @@
+ {% extends 'base.html.twig' %}
+    {% block hero %}{% endblock %}
+    {% block WhyUs %} {% endblock %}
+    {% block stats %} {% endblock %}
+    {% block testimonial %} {% endblock %}
+    {% block events %} {% endblock %}
+    {% block About %}{% endblock %}
+    {% block contact %}{% endblock %}
+    {% block gallery %}{% endblock %}
+    {% block menu %}{% endblock %}
+    {% block chef %}{% endblock %}
+{% block booking %}
+  
+ <section id="book-a-table" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Book A Table</h2>
+          <p>Book <span>Your Stay</span> With Us</p>
+        </div>
+
+        <div class="row g-0">
+            <div class="col-lg-4 reservation-img" style="background-image: url('{{ asset('images/' ~ produit.image) }}')" data-aos="zoom-out" data-aos-delay="200">
+            </div>
+
+           <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
+                <form action="{{ path('app_produit_detail2', {'id': produit.id}) }}" method="post" role="form" class="" data-aos="fade-up" data-aos-delay="100">
+                
+                    <div class="row gy-4">
+                        <h1> <a href="{{ path('app_produit_detail2', {'id': produit.id}) }}">{{ produit.codeproduit }}</a>
+                        </h1>
+                        <p class="ingredients">{{ produit.des }}</p>
+                        <p class="price">{{ produit.prixunitaire }} TND</p>
+                        
+              
+                
+                    </div>
+                
+                   <input type="text" name="q" id="codePromo" placeholder="Code Promo">
+  
+                    <button type="submit" class="btn btn-danger">Book a Table</button>
+               
+                </form>
+            </div>
+
+         
+                {# <div class="col-lg-4 col-md-6" class="mb-3" class="container" data-aos="fade-up">
+                     <form action="{{ path('app_produit_detail2', {'id': produit.id}) }}">
+                        <input type="text"  name="q" id="codePromo" placeholder="Code Promo" >
+                      <button type="submit">BookTable</button>
+                      </form>
+                     </div> #}
+            </div>
+    </div><!-- End Reservation Form -->
+  
+</section><!-- End Book A Table Section -->
+    {% endblock %}

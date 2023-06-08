@@ -1,0 +1,76 @@
+
+
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}Location {% endblock %}
+
+{% block cards %}
+  <br></br>
+<a style="margin-button: 10px;" href="{{ path('app_location_index') }}" >Back to list</a>
+    <h1 class=" text-primary "style="margin-left: 40px;">Location {{location.numLoc}}</h1>
+
+    <table class="table">
+        <tbody>
+            
+
+
+             <tr>
+              
+              <td>
+                 {% if location.image is not null %}
+                  <img src="{{ asset('uploads/local/'~location.image) }}" alt="{{ location.numLoc }}" style="width: 360px; height: 260px;"></td>
+                
+                 {% else %}
+                                            <img src="{{ asset('uploads/local/default.png') }}" alt="{{ location.numLoc }}" class="rounded-circle" style="width: 60px; height: 60px;">
+                                        {% endif %}
+                <td>
+            </tr>
+            <tr>
+                <th>DesciptLoc</th>
+                <td>{{ location.desciptLoc }}</td>
+            </tr>
+            <tr>
+                <th>LieuLoc</th>
+                <td>{{ location.lieuLoc }}</td>
+            </tr>
+            <tr>
+                <th>SurfaceLoc</th>
+                <td>{{ location.surfaceLoc }}</td>
+            </tr>
+            <tr>
+                <th>NbPersLoc</th>
+                <td>{{ location.nbPersLoc }}</td>
+            </tr>
+            <tr>
+                <th>PrixLoc</th>
+                <td>{{ location.prixLoc }}</td>
+            </tr>
+            <tr>
+                <th>Equipements</th>
+                <td>{{ location.equipements }}</td>
+            </tr>
+            <tr>
+                <th>Disponibilite</th>
+                <td>{{ location.disponibilite }}</td>
+            </tr>
+            <tr>
+                <th>DateAloc</th>
+                <td>{{ location.dateAloc ? location.dateAloc|date('Y-m-d') : '' }}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+
+    
+
+<a href="{{ path('app_location_edit', {'numLoc': location.numLoc}) }}" class="btn btn-primary" style="margin-left: 110px;">Edit Local</a>
+    {{ include('location/_delete_form.html.twig') }}
+{% endblock %}
+
+
+
+
+
+
+{% block charts %}{% endblock %}
+{% block Project %}{% endblock %}

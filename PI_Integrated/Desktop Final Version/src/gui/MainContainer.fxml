@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #eaedee;" stylesheets="@../assets/css/app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainContainerController">
+   <children>
+      <AnchorPane fx:id="navbarPane" layoutX="223.0" prefHeight="76.0" prefWidth="1057.0" style="-fx-background-color: 00FFFF;" />
+      <AnchorPane fx:id="sidebarPane" prefHeight="800.0" prefWidth="223.0" />
+      <AnchorPane fx:id="contentPane" layoutX="252.0" layoutY="86.0" prefHeight="700.0" prefWidth="1000.0" />
+   </children>
+</AnchorPane>

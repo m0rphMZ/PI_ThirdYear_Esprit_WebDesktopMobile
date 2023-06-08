@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" cache="true" prefHeight="668.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GereController">
+   <children>
+      <TextField fx:id="nompFid" layoutX="110.0" layoutY="113.0" prefHeight="26.0" prefWidth="200.0" promptText="Nom Produir" />
+      <TextField fx:id="QTFid" layoutX="107.0" layoutY="160.0" prefHeight="26.0" prefWidth="200.0" promptText="Quantite Maximal" />
+      <TextField fx:id="QTMFid" layoutX="108.0" layoutY="216.0" prefHeight="26.0" prefWidth="200.0" promptText="Quantie Minmal" />
+      <TextArea fx:id="DisFid" layoutX="107.0" layoutY="411.0" prefHeight="103.0" prefWidth="200.0" promptText="Description" />
+      <TextField fx:id="PrixFid" layoutX="108.0" layoutY="266.0" prefHeight="26.0" prefWidth="200.0" promptText="Prix unitaire" />
+      <ComboBox fx:id="CatFid" layoutX="107.0" layoutY="321.0" prefWidth="150.0" promptText="Categorie" />
+      <ComboBox fx:id="UniteFid" layoutX="107.0" layoutY="365.0" prefWidth="150.0" promptText="Unite" />
+      <Button id="glass" fx:id="AjoutFid" layoutX="370.0" layoutY="463.0" mnemonicParsing="false" onAction="#ajouterProduit" stylesheets="@../../../../../Downloads/stylesheet.css" text="Ajouter" />
+      <Button id="glass" fx:id="Modiferbtn" layoutX="433.0" layoutY="463.0" mnemonicParsing="false" onAction="#modifierProduit" stylesheets="@../../../../../Downloads/stylesheet.css" text="Modifier" />
+      <Button id="glass" fx:id="supPrd" layoutX="507.0" layoutY="463.0" mnemonicParsing="false" onAction="#supProduit" stylesheets="@../../../../../Downloads/stylesheet.css" text="Supprimer" />
+      <Button id="glass" fx:id="AfficherFid" layoutX="593.0" layoutY="463.0" mnemonicParsing="false" onAction="#afficherProduit" stylesheets="@../../../../../Downloads/stylesheet.css" text="Afficher" />
+      <Button id="glass" fx:id="backID" layoutX="52.0" layoutY="35.0" mnemonicParsing="false" onAction="#back" stylesheets="@newCascadeStyleSheet.css" text="Back" />
+      <TextField fx:id="imageFid" layoutX="108.0" layoutY="531.0" prefHeight="26.0" prefWidth="200.0" promptText="Image" visible="false" />
+      <TableView fx:id="tableProduit" layoutX="370.0" layoutY="108.0" onMouseClicked="#choisirProduit" prefHeight="342.0" prefWidth="517.0">
+        <columns>
+          <TableColumn fx:id="nomTV" prefWidth="56.0" text="nom" />
+          <TableColumn fx:id="QMaxTV" prefWidth="94.40000915527344" text="QMax" />
+            <TableColumn fx:id="QMINTV" prefWidth="75.0" text="QMIN" />
+            <TableColumn fx:id="catTV" prefWidth="75.0" text="Categorie" />
+            <TableColumn fx:id="iduntitTV" prefWidth="75.0" text="Unite" />
+            <TableColumn fx:id="imageTV" prefWidth="139.99996337890627" text="image" />
+        </columns>
+      </TableView>
+      <TextField fx:id="idmodifierField" cache="true" layoutX="348.0" layoutY="411.0" prefHeight="26.0" prefWidth="62.0" visible="false" />
+      <ImageView fx:id="imageview" fitHeight="110.0" fitWidth="126.0" layoutX="678.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true" />
+      <Button id="glass" layoutX="110.0" layoutY="570.0" mnemonicParsing="false" onAction="#uploadImage" prefHeight="26.0" prefWidth="78.0" stylesheets="@newCascadeStyleSheet.css" text="upload" />
+      <Button layoutX="164.0" layoutY="35.0" mnemonicParsing="false" onAction="#switchToCategorie" prefHeight="26.0" prefWidth="179.0" style="-fx-background-color: #EE586E;" text="Ajouter Categorie" textFill="WHITE" />
+      <TextField fx:id="unitF" layoutX="114.0" layoutY="532.0" />
+      <Button id="glass" layoutX="809.0" layoutY="28.0" mnemonicParsing="false" onAction="#playMusic" stylesheets="@newCascadeStyleSheet.css" text="play" />
+      <Button id="glass" layoutX="867.0" layoutY="28.0" mnemonicParsing="false" onAction="#pauseMusic" stylesheets="@newCascadeStyleSheet.css" text="pause" />
+      <Button id="glass" layoutX="371.0" layoutY="74.0" mnemonicParsing="false" onAction="#excelEvent" prefHeight="26.0" prefWidth="78.0" stylesheets="@newCascadeStyleSheet.css" text="PDF" />
+      <Button id="glass" layoutX="456.0" layoutY="74.0" mnemonicParsing="false" onAction="#pdfEvent" prefHeight="26.0" prefWidth="78.0" stylesheets="@newCascadeStyleSheet.css" text="EXCEL" />
+      <ImageView fx:id="QrCode" fitHeight="110.0" fitWidth="126.0" layoutX="804.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

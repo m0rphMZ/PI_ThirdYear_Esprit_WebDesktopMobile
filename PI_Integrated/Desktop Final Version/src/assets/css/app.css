@@ -1,0 +1,101 @@
+.menuButton {
+    -fx-background-color: #3a1aa2; /* Set the background color of the button to be transparent */
+    -fx-background-radius: 0; /* Set the background radius of the button to be 0 */
+    -fx-padding: 0; /* Set the padding of the button to be 0 */
+    -fx-border-color: transparent; /* Set the border color of the button to be transparent */
+    -fx-text-fill: #FFFFFF; /* Set the text color of the button */
+}
+
+.menuButton:hover {
+    -fx-background-color: #e8116f; /* Set the background color of the button to be transparent */
+    -fx-background-radius: 0; /* Set the background radius of the button to be 0 */
+    -fx-padding: 0; /* Set the padding of the button to be 0 */
+    -fx-border-color: transparent; /* Set the border color of the button to be transparent */
+}
+
+.Box {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.2, 0, 2);
+}
+
+.qrBox {
+    -fx-background-color: white;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.2, 0, 2);
+}
+
+.GeneralButton {
+    -fx-background-color: #3a1aa2;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-text-fill: #FFFFFF;
+}
+
+.GeneralButton:hover {
+    -fx-background-color: #e8116f;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+.GeneralButton2 {
+    -fx-background-color: #e8116f;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-text-fill: #FFFFFF;
+}
+
+.GeneralButton2:hover {
+    -fx-background-color: #3a1aa2;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+#eListScrollPane, #sPane, #ticketListScrollPane {
+    -fx-background-color: #eaedee;
+}
+
+#eventListGP {
+    -fx-background-color: #eaedee;
+}
+
+.LikeButton {
+    -fx-background-color: #C6C6C6;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+
+.LikeButton:hover {
+    -fx-background-color: #C1E964;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-text-fill: #FFFFFF;
+}
+
+.DislikeButton {
+    -fx-background-color: #C6C6C6;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+
+.DislikeButton:hover {
+    -fx-background-color: #E96470;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-text-fill: #FFFFFF;
+}
+

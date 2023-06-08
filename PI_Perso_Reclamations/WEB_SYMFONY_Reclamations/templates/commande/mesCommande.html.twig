@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}mes Commandes!{% endblock %}
+
+{% block hero %}
+
+    <section class="h-100 gradient-custom">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message | raw }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+
+        {% for message in app.flashes('fail') %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center my-4">
+                <div class="col-md-8">
+                    <div class="card mb-4">
+                        <div class="card-header py-3">
+                            Mes Commandes
+                        </div>
+                        {% if commandes | length == 0 %}
+                            <center><h3>vide</h3></center>
+
+                        {% endif %}
+                        {% for commande in commandes %}
+
+                            <div class="card-body">
+                                <!-- Single item -->
+                                <div class="row" style="justify-content: space-between;">
+
+
+                                    <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                        <p><b>date:</b> {{ commande.date  | date }}</p>
+                                        <p><b>statue: </b> {{ commande.statue }}</p>
+                                        <p><b>remise: </b> {{ commande.remise }}</p>
+                                        {% if commande.livraison.adresse is defined %}
+                                        {% if commande.livraison.adresse is not null %}
+                                        <p><b>adresse livrasion: </b>{{ commande.livraison.adresse }}</p>
+                                        <p><b>etat livraison : </b>
+                                            {% if commande.livraison.confirmer %}
+                                                confirmé
+                                            {% else %}
+                                                non confimé
+                                            {% endif %}
+                                            {% endif %}
+                                            {% endif %}
+
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                                        {% if commande.livraison is null %}
+                                            <a class="btn btn-primary" style="background-color: #ee568e; border: none; color: #fff;"
+                                               href="{{ path('app_livraison_new', {'idC': commande.idC}) }}">ajout
+                                                livraison</a>
+                                        {% else %}
+                                            <a class="btn btn-success {% if commande.livraison.confirmer %} disabled {% endif %}"
+                                               href="{{ path('app_livraison_edit', {'idC': commande.idC}) }}" {% if commande.livraison.confirmer %} style="pointer-events: none;
+                                                                                                                                                           cursor: default;" {% endif %}>edit
+                                                livraison</a>
+                                        {% endif %}
+
+                                        <form method="post"
+                                              action="{{ path('app_commande_delete_front', {'idC': commande.idC}) }}">
+                                            <input type="hidden" name="_token"
+                                                   value="{{ csrf_token('delete' ~ commande.idC) }}">
+                                            
+                                        </form>
+                                        <a class="btn btn-info" style="background-color: blue; border: none; color: #fff;"
+                                           href="{{ path('app_commande_item_index_commande_front', {'idC': commande.idC}) }}">items</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-4"/>
+
+                        {% endfor %}
+                        <div style="justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 24px;">{{ knp_pagination_render(commandes) }}</div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block About %}{% endblock %}
+{% block WhyUs %}{% endblock %}
+{% block stats %}{% endblock %}
+{% block menu %}{% endblock %}
+{% block testimonial %}{% endblock %}
+{% block events %}{% endblock %}
+{% block booking %}{% endblock %}
+{% block gallery %}{% endblock %}
+{% block contact %}{% endblock %}
+{% block chefs %}{% endblock %}
